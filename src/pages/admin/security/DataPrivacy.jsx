@@ -13,30 +13,30 @@ const DataPrivacy = () => {
             <div className="flex items-center gap-4">
                 <button
                     onClick={() => navigate('/admin/security')}
-                    className="p-2 hover:bg-secondary-100 rounded-full transition-colors"
+                    className="p-2 hover:bg-secondary-100 dark:hover:bg-secondary-800 rounded-full transition-colors"
                 >
-                    <ArrowLeft size={24} className="text-secondary-600" />
+                    <ArrowLeft size={24} className="text-secondary-600 dark:text-secondary-400" />
                 </button>
                 <div>
-                    <h1 className="text-2xl font-bold text-secondary-900">Data Privacy & Security</h1>
-                    <p className="text-secondary-500">Manage encryption and data rights</p>
+                    <h1 className="text-2xl font-bold text-secondary-900 dark:text-secondary-100">Data Privacy & Security</h1>
+                    <p className="text-secondary-500 dark:text-secondary-400">Manage encryption and data rights</p>
                 </div>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {/* Data Security */}
                 <div className="space-y-6">
-                    <div className="bg-white p-6 rounded-xl shadow-sm border border-secondary-200">
-                        <h2 className="text-lg font-bold text-secondary-900 mb-6 flex items-center gap-2">
-                            <Lock className="text-green-600" />
+                    <div className="bg-white dark:bg-secondary-900 p-6 rounded-xl shadow-sm border border-secondary-200 dark:border-secondary-800">
+                        <h2 className="text-lg font-bold text-secondary-900 dark:text-secondary-100 mb-6 flex items-center gap-2">
+                            <Lock className="text-green-600 dark:text-green-400" />
                             Data Encryption
                         </h2>
-                        <div className="flex items-center justify-between p-4 bg-green-50 border border-green-100 rounded-lg mb-4">
+                        <div className="flex items-center justify-between p-4 bg-green-50 dark:bg-green-900/20 border border-green-100 dark:border-green-900/30 rounded-lg mb-4">
                             <div className="flex items-center gap-3">
-                                <Shield className="text-green-600" />
+                                <Shield className="text-green-600 dark:text-green-400" />
                                 <div>
-                                    <h3 className="font-bold text-green-900">End-to-End Encryption</h3>
-                                    <p className="text-sm text-green-700">Sensitive data is encrypted at rest.</p>
+                                    <h3 className="font-bold text-green-900 dark:text-green-300">End-to-End Encryption</h3>
+                                    <p className="text-sm text-green-700 dark:text-green-400">Sensitive data is encrypted at rest.</p>
                                 </div>
                             </div>
                             <label className="relative inline-flex items-center cursor-pointer">
@@ -46,39 +46,39 @@ const DataPrivacy = () => {
                                     checked={encryptionEnabled}
                                     onChange={() => setEncryptionEnabled(!encryptionEnabled)}
                                 />
-                                <div className="w-11 h-6 bg-secondary-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-green-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-600"></div>
+                                <div className="w-11 h-6 bg-secondary-200 dark:bg-secondary-700 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-green-300 dark:peer-focus:ring-green-900 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-600"></div>
                             </label>
                         </div>
-                        <div className="text-sm text-secondary-500">
+                        <div className="text-sm text-secondary-500 dark:text-secondary-400">
                             <p className="mb-2"><strong>Encrypted Fields:</strong> Passwords, Bank Details, Health Records.</p>
                             <p>Encryption Standard: AES-256</p>
                         </div>
                     </div>
 
-                    <div className="bg-white p-6 rounded-xl shadow-sm border border-secondary-200">
-                        <h2 className="text-lg font-bold text-secondary-900 mb-6 flex items-center gap-2">
-                            <Database className="text-blue-600" />
+                    <div className="bg-white dark:bg-secondary-900 p-6 rounded-xl shadow-sm border border-secondary-200 dark:border-secondary-800">
+                        <h2 className="text-lg font-bold text-secondary-900 dark:text-secondary-100 mb-6 flex items-center gap-2">
+                            <Database className="text-blue-600 dark:text-blue-400" />
                             Data Retention
                         </h2>
                         <div className="space-y-4">
                             <div className="flex justify-between items-center">
-                                <span className="text-secondary-700">Student Records</span>
-                                <select className="border border-secondary-300 rounded px-2 py-1 text-sm">
+                                <span className="text-secondary-700 dark:text-secondary-300">Student Records</span>
+                                <select className="border border-secondary-300 dark:border-secondary-700 bg-white dark:bg-secondary-800 text-secondary-900 dark:text-secondary-100 rounded px-2 py-1 text-sm">
                                     <option>5 Years after graduation</option>
                                     <option>10 Years after graduation</option>
                                     <option>Permanent</option>
                                 </select>
                             </div>
                             <div className="flex justify-between items-center">
-                                <span className="text-secondary-700">Financial Logs</span>
-                                <select className="border border-secondary-300 rounded px-2 py-1 text-sm">
+                                <span className="text-secondary-700 dark:text-secondary-300">Financial Logs</span>
+                                <select className="border border-secondary-300 dark:border-secondary-700 bg-white dark:bg-secondary-800 text-secondary-900 dark:text-secondary-100 rounded px-2 py-1 text-sm">
                                     <option>7 Years</option>
                                     <option>10 Years</option>
                                 </select>
                             </div>
                             <div className="flex justify-between items-center">
-                                <span className="text-secondary-700">Audit Logs</span>
-                                <select className="border border-secondary-300 rounded px-2 py-1 text-sm">
+                                <span className="text-secondary-700 dark:text-secondary-300">Audit Logs</span>
+                                <select className="border border-secondary-300 dark:border-secondary-700 bg-white dark:bg-secondary-800 text-secondary-900 dark:text-secondary-100 rounded px-2 py-1 text-sm">
                                     <option>1 Year</option>
                                     <option>2 Years</option>
                                 </select>
@@ -88,32 +88,32 @@ const DataPrivacy = () => {
                 </div>
 
                 {/* GDPR & Rights */}
-                <div className="bg-white p-6 rounded-xl shadow-sm border border-secondary-200">
-                    <h2 className="text-lg font-bold text-secondary-900 mb-6 flex items-center gap-2">
-                        <FileText className="text-purple-600" />
+                <div className="bg-white dark:bg-secondary-900 p-6 rounded-xl shadow-sm border border-secondary-200 dark:border-secondary-800">
+                    <h2 className="text-lg font-bold text-secondary-900 dark:text-secondary-100 mb-6 flex items-center gap-2">
+                        <FileText className="text-purple-600 dark:text-purple-400" />
                         GDPR Data Rights
                     </h2>
 
                     <div className="space-y-6">
-                        <div className="p-4 border border-secondary-200 rounded-lg hover:border-purple-300 transition-colors">
+                        <div className="p-4 border border-secondary-200 dark:border-secondary-800 rounded-lg hover:border-purple-300 dark:hover:border-purple-700 transition-colors">
                             <div className="flex items-center gap-3 mb-2">
-                                <Eye className="text-purple-600" size={20} />
-                                <h3 className="font-bold text-secondary-900">Right to Access</h3>
+                                <Eye className="text-purple-600 dark:text-purple-400" size={20} />
+                                <h3 className="font-bold text-secondary-900 dark:text-secondary-100">Right to Access</h3>
                             </div>
-                            <p className="text-sm text-secondary-500 mb-3">Generate a comprehensive report of all personal data held for a specific user.</p>
+                            <p className="text-sm text-secondary-500 dark:text-secondary-400 mb-3">Generate a comprehensive report of all personal data held for a specific user.</p>
                             <div className="flex gap-2">
-                                <input type="text" placeholder="Enter User ID" className="flex-1 px-3 py-1 border border-secondary-300 rounded text-sm" />
+                                <input type="text" placeholder="Enter User ID" className="flex-1 px-3 py-1 border border-secondary-300 dark:border-secondary-700 bg-white dark:bg-secondary-800 text-secondary-900 dark:text-secondary-100 rounded text-sm" />
                                 <button className="px-3 py-1 bg-purple-600 text-white text-sm rounded hover:bg-purple-700">Generate</button>
                             </div>
                         </div>
 
-                        <div className="p-4 border border-secondary-200 rounded-lg hover:border-red-300 transition-colors">
+                        <div className="p-4 border border-secondary-200 dark:border-secondary-800 rounded-lg hover:border-red-300 dark:hover:border-red-700 transition-colors">
                             <div className="flex items-center gap-3 mb-2">
-                                <Trash2 className="text-red-600" size={20} />
-                                <h3 className="font-bold text-secondary-900">Right to Erasure</h3>
+                                <Trash2 className="text-red-600 dark:text-red-400" size={20} />
+                                <h3 className="font-bold text-secondary-900 dark:text-secondary-100">Right to Erasure</h3>
                             </div>
-                            <p className="text-sm text-secondary-500 mb-3">Permanently delete user data (subject to retention policies).</p>
-                            <button className="w-full py-2 border border-red-200 text-red-600 text-sm font-medium rounded hover:bg-red-50">
+                            <p className="text-sm text-secondary-500 dark:text-secondary-400 mb-3">Permanently delete user data (subject to retention policies).</p>
+                            <button className="w-full py-2 border border-red-200 dark:border-red-800 text-red-600 dark:text-red-400 text-sm font-medium rounded hover:bg-red-50 dark:hover:bg-red-900/20">
                                 Initiate Erasure Request
                             </button>
                         </div>

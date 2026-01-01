@@ -23,8 +23,8 @@ const FacultyList = () => {
         <div className="space-y-6">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                 <div>
-                    <h1 className="text-2xl font-bold text-secondary-900">Faculty Directory</h1>
-                    <p className="text-secondary-500">Manage and view all faculty members</p>
+                    <h1 className="text-2xl font-bold text-secondary-900 dark:text-secondary-100">Faculty Directory</h1>
+                    <p className="text-secondary-500 dark:text-secondary-400">Manage and view all faculty members</p>
                 </div>
                 <button className="btn-primary flex items-center gap-2">
                     <Plus size={20} />
@@ -33,13 +33,13 @@ const FacultyList = () => {
             </div>
 
             {/* Filters and Search */}
-            <div className="bg-white p-4 rounded-xl shadow-sm border border-secondary-200 flex flex-col sm:flex-row gap-4 justify-between items-center">
+            <div className="bg-white dark:bg-secondary-900 p-4 rounded-xl shadow-sm border border-secondary-200 dark:border-secondary-800 flex flex-col sm:flex-row gap-4 justify-between items-center">
                 <div className="relative flex-1 w-full">
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-secondary-400" size={20} />
                     <input
                         type="text"
                         placeholder="Search by name, ID, or email..."
-                        className="w-full pl-10 pr-4 py-2 border border-secondary-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
+                        className="w-full pl-10 pr-4 py-2 border border-secondary-200 dark:border-secondary-700 bg-white dark:bg-secondary-800 text-secondary-900 dark:text-secondary-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />
@@ -48,7 +48,7 @@ const FacultyList = () => {
                     <div className="relative min-w-[200px]">
                         <Filter className="absolute left-3 top-1/2 -translate-y-1/2 text-secondary-400" size={20} />
                         <select
-                            className="w-full pl-10 pr-4 py-2 border border-secondary-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 appearance-none bg-white"
+                            className="w-full pl-10 pr-4 py-2 border border-secondary-200 dark:border-secondary-700 bg-white dark:bg-secondary-800 text-secondary-900 dark:text-secondary-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 appearance-none"
                             value={departmentFilter}
                             onChange={(e) => setDepartmentFilter(e.target.value)}
                         >
@@ -57,15 +57,15 @@ const FacultyList = () => {
                             ))}
                         </select>
                     </div>
-                    <div className="flex border border-secondary-200 rounded-lg overflow-hidden">
+                    <div className="flex border border-secondary-200 dark:border-secondary-700 rounded-lg overflow-hidden">
                         <button
-                            className={`p-2 ${viewMode === 'grid' ? 'bg-primary-50 text-primary-600' : 'bg-white text-secondary-500'}`}
+                            className={`p-2 ${viewMode === 'grid' ? 'bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400' : 'bg-white dark:bg-secondary-800 text-secondary-500 dark:text-secondary-400'}`}
                             onClick={() => setViewMode('grid')}
                         >
                             <Grid size={20} />
                         </button>
                         <button
-                            className={`p-2 ${viewMode === 'list' ? 'bg-primary-50 text-primary-600' : 'bg-white text-secondary-500'}`}
+                            className={`p-2 ${viewMode === 'list' ? 'bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400' : 'bg-white dark:bg-secondary-800 text-secondary-500 dark:text-secondary-400'}`}
                             onClick={() => setViewMode('list')}
                         >
                             <List size={20} />
@@ -80,25 +80,25 @@ const FacultyList = () => {
                     {filteredFaculty.map((member) => (
                         <div
                             key={member.id}
-                            className="bg-white rounded-xl shadow-sm border border-secondary-200 overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
+                            className="bg-white dark:bg-secondary-900 rounded-xl shadow-sm border border-secondary-200 dark:border-secondary-800 overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
                             onClick={() => navigate(`/faculty/${member.id}`)}
                         >
-                            <div className="p-6 flex flex-col items-center text-center border-b border-secondary-100">
+                            <div className="p-6 flex flex-col items-center text-center border-b border-secondary-100 dark:border-secondary-800">
                                 <img
                                     src={member.photo}
                                     alt={member.name}
-                                    className="w-24 h-24 rounded-full object-cover mb-4 ring-4 ring-primary-50"
+                                    className="w-24 h-24 rounded-full object-cover mb-4 ring-4 ring-primary-50 dark:ring-primary-900/20"
                                 />
-                                <h3 className="text-lg font-bold text-secondary-900">{member.name}</h3>
-                                <p className="text-primary-600 font-medium">{member.designation}</p>
-                                <p className="text-secondary-500 text-sm">{member.department}</p>
+                                <h3 className="text-lg font-bold text-secondary-900 dark:text-secondary-100">{member.name}</h3>
+                                <p className="text-primary-600 dark:text-primary-400 font-medium">{member.designation}</p>
+                                <p className="text-secondary-500 dark:text-secondary-400 text-sm">{member.department}</p>
                             </div>
-                            <div className="p-4 bg-secondary-50 space-y-2">
-                                <div className="flex items-center gap-3 text-sm text-secondary-600">
+                            <div className="p-4 bg-secondary-50 dark:bg-secondary-800/50 space-y-2">
+                                <div className="flex items-center gap-3 text-sm text-secondary-600 dark:text-secondary-400">
                                     <Mail size={16} />
                                     <span className="truncate">{member.email}</span>
                                 </div>
-                                <div className="flex items-center gap-3 text-sm text-secondary-600">
+                                <div className="flex items-center gap-3 text-sm text-secondary-600 dark:text-secondary-400">
                                     <Phone size={16} />
                                     <span>{member.phone}</span>
                                 </div>
@@ -107,38 +107,38 @@ const FacultyList = () => {
                     ))}
                 </div>
             ) : (
-                <div className="bg-white rounded-xl shadow-sm border border-secondary-200 overflow-hidden">
+                <div className="bg-white dark:bg-secondary-900 rounded-xl shadow-sm border border-secondary-200 dark:border-secondary-800 overflow-hidden">
                     <div className="overflow-x-auto">
                         <table className="w-full text-left border-collapse">
                             <thead>
-                                <tr className="bg-secondary-50 border-b border-secondary-200">
-                                    <th className="p-4 font-semibold text-secondary-700">Name</th>
-                                    <th className="p-4 font-semibold text-secondary-700">ID</th>
-                                    <th className="p-4 font-semibold text-secondary-700">Department</th>
-                                    <th className="p-4 font-semibold text-secondary-700">Designation</th>
-                                    <th className="p-4 font-semibold text-secondary-700">Contact</th>
-                                    <th className="p-4 font-semibold text-secondary-700">Actions</th>
+                                <tr className="bg-secondary-50 dark:bg-secondary-800/50 border-b border-secondary-200 dark:border-secondary-800">
+                                    <th className="p-4 font-semibold text-secondary-700 dark:text-secondary-300">Name</th>
+                                    <th className="p-4 font-semibold text-secondary-700 dark:text-secondary-300">ID</th>
+                                    <th className="p-4 font-semibold text-secondary-700 dark:text-secondary-300">Department</th>
+                                    <th className="p-4 font-semibold text-secondary-700 dark:text-secondary-300">Designation</th>
+                                    <th className="p-4 font-semibold text-secondary-700 dark:text-secondary-300">Contact</th>
+                                    <th className="p-4 font-semibold text-secondary-700 dark:text-secondary-300">Actions</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody className="divide-y divide-secondary-100 dark:divide-secondary-800">
                                 {filteredFaculty.map((member) => (
                                     <tr
                                         key={member.id}
-                                        className="border-b border-secondary-100 hover:bg-secondary-50 cursor-pointer"
+                                        className="border-b border-secondary-100 dark:border-secondary-800 hover:bg-secondary-50 dark:hover:bg-secondary-800/50 cursor-pointer"
                                         onClick={() => navigate(`/faculty/${member.id}`)}
                                     >
                                         <td className="p-4">
                                             <div className="flex items-center gap-3">
                                                 <img src={member.photo} alt={member.name} className="w-10 h-10 rounded-full object-cover" />
                                                 <div>
-                                                    <p className="font-medium text-secondary-900">{member.name}</p>
-                                                    <p className="text-xs text-secondary-500">{member.specialization}</p>
+                                                    <p className="font-medium text-secondary-900 dark:text-secondary-100">{member.name}</p>
+                                                    <p className="text-xs text-secondary-500 dark:text-secondary-400">{member.specialization}</p>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td className="p-4 text-secondary-600">{member.id}</td>
-                                        <td className="p-4 text-secondary-600">{member.department}</td>
-                                        <td className="p-4 text-secondary-600">{member.designation}</td>
+                                        <td className="p-4 text-secondary-600 dark:text-secondary-400">{member.id}</td>
+                                        <td className="p-4 text-secondary-600 dark:text-secondary-400">{member.department}</td>
+                                        <td className="p-4 text-secondary-600 dark:text-secondary-400">{member.designation}</td>
                                         <td className="p-4 text-secondary-600">
                                             <div className="flex flex-col text-sm">
                                                 <span>{member.email}</span>

@@ -22,24 +22,24 @@ const AuditLogs = () => {
             <div className="flex items-center gap-4">
                 <button
                     onClick={() => navigate('/admin/security')}
-                    className="p-2 hover:bg-secondary-100 rounded-full transition-colors"
+                    className="p-2 hover:bg-secondary-100 dark:hover:bg-secondary-800 rounded-full transition-colors"
                 >
-                    <ArrowLeft size={24} className="text-secondary-600" />
+                    <ArrowLeft size={24} className="text-secondary-600 dark:text-secondary-400" />
                 </button>
                 <div>
-                    <h1 className="text-2xl font-bold text-secondary-900">Audit Logs</h1>
-                    <p className="text-secondary-500">Track system activity and security events</p>
+                    <h1 className="text-2xl font-bold text-secondary-900 dark:text-secondary-100">Audit Logs</h1>
+                    <p className="text-secondary-500 dark:text-secondary-400">Track system activity and security events</p>
                 </div>
             </div>
 
             {/* Filters */}
-            <div className="bg-white p-4 rounded-xl shadow-sm border border-secondary-200 flex flex-col md:flex-row gap-4 justify-between items-center">
+            <div className="bg-white dark:bg-secondary-900 p-4 rounded-xl shadow-sm border border-secondary-200 dark:border-secondary-800 flex flex-col md:flex-row gap-4 justify-between items-center">
                 <div className="relative w-full md:w-96">
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-secondary-400" size={18} />
                     <input
                         type="text"
                         placeholder="Search logs..."
-                        className="w-full pl-10 pr-4 py-2 border border-secondary-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
+                        className="w-full pl-10 pr-4 py-2 border border-secondary-200 dark:border-secondary-700 bg-white dark:bg-secondary-800 text-secondary-900 dark:text-secondary-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />
@@ -47,7 +47,7 @@ const AuditLogs = () => {
 
                 <div className="flex gap-2 w-full md:w-auto">
                     <select
-                        className="px-4 py-2 border border-secondary-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
+                        className="px-4 py-2 border border-secondary-200 dark:border-secondary-700 bg-white dark:bg-secondary-800 text-secondary-900 dark:text-secondary-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
                         value={filterRole}
                         onChange={(e) => setFilterRole(e.target.value)}
                     >
@@ -56,7 +56,7 @@ const AuditLogs = () => {
                         <option value="Faculty">Faculty</option>
                         <option value="Student">Student</option>
                     </select>
-                    <button className="flex items-center gap-2 px-4 py-2 border border-secondary-200 rounded-lg hover:bg-secondary-50 text-secondary-600">
+                    <button className="flex items-center gap-2 px-4 py-2 border border-secondary-200 dark:border-secondary-700 rounded-lg hover:bg-secondary-50 dark:hover:bg-secondary-800 text-secondary-600 dark:text-secondary-400">
                         <Download size={18} />
                         Export
                     </button>
@@ -64,33 +64,33 @@ const AuditLogs = () => {
             </div>
 
             {/* Logs Table */}
-            <div className="bg-white rounded-xl shadow-sm border border-secondary-200 overflow-hidden">
+            <div className="bg-white dark:bg-secondary-900 rounded-xl shadow-sm border border-secondary-200 dark:border-secondary-800 overflow-hidden">
                 <table className="w-full text-left border-collapse">
-                    <thead className="bg-secondary-50 border-b border-secondary-200">
+                    <thead className="bg-secondary-50 dark:bg-secondary-800/50 border-b border-secondary-200 dark:border-secondary-800">
                         <tr>
-                            <th className="p-4 font-semibold text-secondary-600 text-sm">Action</th>
-                            <th className="p-4 font-semibold text-secondary-600 text-sm">User</th>
-                            <th className="p-4 font-semibold text-secondary-600 text-sm">Role</th>
-                            <th className="p-4 font-semibold text-secondary-600 text-sm">Timestamp</th>
-                            <th className="p-4 font-semibold text-secondary-600 text-sm">IP Address</th>
-                            <th className="p-4 font-semibold text-secondary-600 text-sm text-right">Status</th>
+                            <th className="p-4 font-semibold text-secondary-600 dark:text-secondary-300 text-sm">Action</th>
+                            <th className="p-4 font-semibold text-secondary-600 dark:text-secondary-300 text-sm">User</th>
+                            <th className="p-4 font-semibold text-secondary-600 dark:text-secondary-300 text-sm">Role</th>
+                            <th className="p-4 font-semibold text-secondary-600 dark:text-secondary-300 text-sm">Timestamp</th>
+                            <th className="p-4 font-semibold text-secondary-600 dark:text-secondary-300 text-sm">IP Address</th>
+                            <th className="p-4 font-semibold text-secondary-600 dark:text-secondary-300 text-sm text-right">Status</th>
                         </tr>
                     </thead>
-                    <tbody className="divide-y divide-secondary-100">
+                    <tbody className="divide-y divide-secondary-100 dark:divide-secondary-800">
                         {filteredLogs.map((log) => (
-                            <tr key={log.id} className="hover:bg-secondary-50 transition-colors">
-                                <td className="p-4 font-medium text-secondary-900">{log.action}</td>
-                                <td className="p-4 text-secondary-600">{log.user}</td>
+                            <tr key={log.id} className="hover:bg-secondary-50 dark:hover:bg-secondary-800/50 transition-colors">
+                                <td className="p-4 font-medium text-secondary-900 dark:text-secondary-100">{log.action}</td>
+                                <td className="p-4 text-secondary-600 dark:text-secondary-400">{log.user}</td>
                                 <td className="p-4">
-                                    <span className="px-2 py-1 bg-secondary-100 text-secondary-700 rounded text-xs font-bold">
+                                    <span className="px-2 py-1 bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-300 rounded text-xs font-bold">
                                         {log.role}
                                     </span>
                                 </td>
-                                <td className="p-4 text-sm text-secondary-500 font-mono">{log.timestamp}</td>
-                                <td className="p-4 text-sm text-secondary-500 font-mono">{log.ip}</td>
+                                <td className="p-4 text-sm text-secondary-500 dark:text-secondary-400 font-mono">{log.timestamp}</td>
+                                <td className="p-4 text-sm text-secondary-500 dark:text-secondary-400 font-mono">{log.ip}</td>
                                 <td className="p-4 text-right">
-                                    <span className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-bold ${log.status === 'Success' ? 'bg-green-100 text-green-700' :
-                                            log.status === 'Failed' ? 'bg-red-100 text-red-700' : 'bg-yellow-100 text-yellow-700'
+                                    <span className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-bold ${log.status === 'Success' ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400' :
+                                        log.status === 'Failed' ? 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400' : 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400'
                                         }`}>
                                         {log.status === 'Success' ? <CheckCircle size={12} /> : <AlertCircle size={12} />}
                                         {log.status}

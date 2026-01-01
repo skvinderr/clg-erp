@@ -14,17 +14,20 @@ import {
     BedDouble,
     Bus,
     Briefcase,
-    Shield
+
+    Shield,
+    LogOut
 } from 'lucide-react';
 import { clsx } from 'clsx';
 
 import { useAuth } from '../context/AuthContext';
 
 export function Sidebar({ collapsed, setCollapsed }) {
-    const { hasRole } = useAuth();
+    const { hasRole, logout } = useAuth();
 
     const navItems = [
         { icon: LayoutDashboard, label: 'Dashboard', path: '/dashboard', roles: ['Admin'] },
+        { icon: LayoutDashboard, label: 'Dashboard', path: '/student-portal', roles: ['Student'] },
         { icon: Shield, label: 'Administration', path: '/admin', roles: ['Admin'] },
         { icon: Users, label: 'Students', path: '/students', roles: ['Admin', 'Faculty'] },
         { icon: GraduationCap, label: 'Faculty', path: '/faculty', roles: ['Admin'] },
@@ -97,16 +100,28 @@ export function Sidebar({ collapsed, setCollapsed }) {
             </div>
 
             <div className="p-4 border-t border-secondary-100 dark:border-secondary-800">
-                <div className={clsx("flex items-center gap-3", collapsed && "justify-center")}>
-                    <div className="w-8 h-8 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center text-primary-700 dark:text-primary-400 font-bold text-xs">
-                        JD
-                    </div>
-                    {!collapsed && (
-                        <div className="flex-1 min-w-0">
-                            <p className="text-sm font-medium text-secondary-900 dark:text-secondary-100 truncate">John Doe</p>
-                            <p className="text-xs text-secondary-500 dark:text-secondary-400 truncate">Administrator</p>
+                <div className={clsx("flex items-center gap-3", collapsed ? "flex-col justify-center" : "justify-between")}>
+                    <div className={clsx("flex items-center gap-3 flex-1 overflow-hidden", collapsed && "justify-center")}>
+                        <div className="w-8 h-8 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center text-primary-700 dark:text-primary-400 font-bold text-xs flex-shrink-0">
+                            JD
                         </div>
-                    )}
+                        {!collapsed && (
+                            <div className="flex-1 min-w-0">
+                                <p className="text-sm font-medium text-secondary-900 dark:text-secondary-100 truncate">John Doe</p>
+                                <p className="text-xs text-secondary-500 dark:text-secondary-400 truncate">Administrator</p>
+                            </div>
+                        )}
+                    </div>
+                    <button
+                        onClick={logout}
+                        className={clsx(
+                            "p-2 text-secondary-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors",
+                            collapsed && "mt-2"
+                        )}
+                        title="Logout"
+                    >
+                        <LogOut size={20} />
+                    </button>
                 </div>
             </div>
         </aside>

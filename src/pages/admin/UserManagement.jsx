@@ -30,26 +30,26 @@ const UserManagement = () => {
             <div className="flex items-center gap-4">
                 <button
                     onClick={() => navigate('/admin')}
-                    className="p-2 hover:bg-secondary-100 rounded-full transition-colors"
+                    className="p-2 hover:bg-secondary-100 dark:hover:bg-secondary-800 rounded-full transition-colors"
                 >
-                    <ArrowLeft size={24} className="text-secondary-600" />
+                    <ArrowLeft size={24} className="text-secondary-600 dark:text-secondary-400" />
                 </button>
                 <div>
-                    <h1 className="text-2xl font-bold text-secondary-900">User Management</h1>
-                    <p className="text-secondary-500">Manage access and permissions</p>
+                    <h1 className="text-2xl font-bold text-secondary-900 dark:text-secondary-100">User Management</h1>
+                    <p className="text-secondary-500 dark:text-secondary-400">Manage access and permissions</p>
                 </div>
             </div>
 
             {/* Controls */}
-            <div className="bg-white p-4 rounded-xl shadow-sm border border-secondary-200 flex flex-col md:flex-row justify-between items-center gap-4">
-                <div className="flex gap-2 bg-secondary-50 p-1 rounded-lg">
+            <div className="bg-white dark:bg-secondary-900 p-4 rounded-xl shadow-sm border border-secondary-200 dark:border-secondary-800 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div className="flex gap-2 bg-secondary-50 dark:bg-secondary-800 p-1 rounded-lg">
                     {['Admin', 'Faculty', 'Student'].map((tab) => (
                         <button
                             key={tab}
                             onClick={() => setActiveTab(tab)}
                             className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${activeTab === tab
-                                    ? 'bg-white text-primary-600 shadow-sm'
-                                    : 'text-secondary-500 hover:text-secondary-700'
+                                ? 'bg-white dark:bg-secondary-700 text-primary-600 dark:text-primary-400 shadow-sm'
+                                : 'text-secondary-500 dark:text-secondary-400 hover:text-secondary-700 dark:hover:text-secondary-200'
                                 }`}
                         >
                             {tab}s
@@ -63,7 +63,7 @@ const UserManagement = () => {
                         <input
                             type="text"
                             placeholder="Search users..."
-                            className="w-full pl-10 pr-4 py-2 border border-secondary-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
+                            className="w-full pl-10 pr-4 py-2 border border-secondary-200 dark:border-secondary-700 bg-white dark:bg-secondary-800 text-secondary-900 dark:text-secondary-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
                         />
@@ -76,33 +76,33 @@ const UserManagement = () => {
             </div>
 
             {/* User List */}
-            <div className="bg-white rounded-xl shadow-sm border border-secondary-200 overflow-hidden">
+            <div className="bg-white dark:bg-secondary-900 rounded-xl shadow-sm border border-secondary-200 dark:border-secondary-800 overflow-hidden">
                 <table className="w-full text-left border-collapse">
-                    <thead className="bg-secondary-50 border-b border-secondary-200">
+                    <thead className="bg-secondary-50 dark:bg-secondary-800/50 border-b border-secondary-200 dark:border-secondary-800">
                         <tr>
-                            <th className="p-4 font-semibold text-secondary-600 text-sm">User</th>
-                            <th className="p-4 font-semibold text-secondary-600 text-sm">Role</th>
-                            <th className="p-4 font-semibold text-secondary-600 text-sm">Status</th>
-                            <th className="p-4 font-semibold text-secondary-600 text-sm">Last Login</th>
-                            <th className="p-4 font-semibold text-secondary-600 text-sm text-right">Actions</th>
+                            <th className="p-4 font-semibold text-secondary-600 dark:text-secondary-300 text-sm">User</th>
+                            <th className="p-4 font-semibold text-secondary-600 dark:text-secondary-300 text-sm">Role</th>
+                            <th className="p-4 font-semibold text-secondary-600 dark:text-secondary-300 text-sm">Status</th>
+                            <th className="p-4 font-semibold text-secondary-600 dark:text-secondary-300 text-sm">Last Login</th>
+                            <th className="p-4 font-semibold text-secondary-600 dark:text-secondary-300 text-sm text-right">Actions</th>
                         </tr>
                     </thead>
-                    <tbody className="divide-y divide-secondary-100">
+                    <tbody className="divide-y divide-secondary-100 dark:divide-secondary-800">
                         {users.map((user) => (
-                            <tr key={user.id} className="hover:bg-secondary-50 transition-colors">
+                            <tr key={user.id} className="hover:bg-secondary-50 dark:hover:bg-secondary-800/50 transition-colors">
                                 <td className="p-4">
                                     <div className="flex items-center gap-3">
-                                        <div className="w-10 h-10 bg-primary-100 text-primary-600 rounded-full flex items-center justify-center font-bold">
+                                        <div className="w-10 h-10 bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 rounded-full flex items-center justify-center font-bold">
                                             {user.name.charAt(0)}
                                         </div>
                                         <div>
-                                            <p className="font-medium text-secondary-900">{user.name}</p>
-                                            <p className="text-xs text-secondary-500">{user.email || 'N/A'}</p>
+                                            <p className="font-medium text-secondary-900 dark:text-secondary-100">{user.name}</p>
+                                            <p className="text-xs text-secondary-500 dark:text-secondary-400">{user.email || 'N/A'}</p>
                                         </div>
                                     </div>
                                 </td>
                                 <td className="p-4">
-                                    <span className="flex items-center gap-1 text-sm text-secondary-600">
+                                    <span className="flex items-center gap-1 text-sm text-secondary-600 dark:text-secondary-400">
                                         <Shield size={14} />
                                         {user.role || activeTab}
                                     </span>
@@ -113,18 +113,18 @@ const UserManagement = () => {
                                         {user.status || 'Active'}
                                     </span>
                                 </td>
-                                <td className="p-4 text-sm text-secondary-500">
+                                <td className="p-4 text-sm text-secondary-500 dark:text-secondary-400">
                                     {user.lastLogin || 'Never'}
                                 </td>
                                 <td className="p-4 text-right">
                                     <div className="flex justify-end gap-2">
-                                        <button className="p-2 hover:bg-secondary-200 rounded text-secondary-500" title="Reset Password">
+                                        <button className="p-2 hover:bg-secondary-200 dark:hover:bg-secondary-800 rounded text-secondary-500 dark:text-secondary-400" title="Reset Password">
                                             <Lock size={16} />
                                         </button>
-                                        <button className="p-2 hover:bg-secondary-200 rounded text-blue-600" title="Edit">
+                                        <button className="p-2 hover:bg-secondary-200 dark:hover:bg-secondary-800 rounded text-blue-600 dark:text-blue-400" title="Edit">
                                             <Edit size={16} />
                                         </button>
-                                        <button className="p-2 hover:bg-red-100 rounded text-red-600" title="Delete">
+                                        <button className="p-2 hover:bg-red-100 dark:hover:bg-red-900/20 rounded text-red-600 dark:text-red-400" title="Delete">
                                             <Trash2 size={16} />
                                         </button>
                                     </div>

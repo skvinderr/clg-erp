@@ -8,20 +8,20 @@ const StatCard = ({ title, value, icon: Icon, color, trend }) => (
     <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-white p-6 rounded-xl shadow-sm border border-secondary-200"
+        className="bg-white dark:bg-secondary-900 p-6 rounded-xl shadow-sm border border-secondary-200 dark:border-secondary-800"
     >
         <div className="flex items-center justify-between">
             <div>
-                <p className="text-sm font-medium text-secondary-500">{title}</p>
-                <h3 className="text-2xl font-bold text-secondary-900 mt-1">{value}</h3>
+                <p className="text-sm font-medium text-secondary-500 dark:text-secondary-400">{title}</p>
+                <h3 className="text-2xl font-bold text-secondary-900 dark:text-secondary-100 mt-1">{value}</h3>
             </div>
             <div className={`p-3 rounded-lg ${color}`}>
                 <Icon className="w-6 h-6 text-white" />
             </div>
         </div>
         <div className="mt-4 flex items-center text-sm">
-            <span className="text-green-600 font-medium">{trend}</span>
-            <span className="text-secondary-400 ml-2">vs last month</span>
+            <span className="text-green-600 dark:text-green-400 font-medium">{trend}</span>
+            <span className="text-secondary-400 dark:text-secondary-500 ml-2">vs last month</span>
         </div>
     </motion.div>
 );
@@ -45,8 +45,8 @@ export default function Dashboard() {
     return (
         <div className="space-y-6">
             <div>
-                <h1 className="text-2xl font-bold text-secondary-900">Dashboard Overview</h1>
-                <p className="text-secondary-500">Welcome back, here's what's happening today.</p>
+                <h1 className="text-2xl font-bold text-secondary-900 dark:text-secondary-100">Dashboard Overview</h1>
+                <p className="text-secondary-500 dark:text-secondary-400">Welcome back, here's what's happening today.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -81,10 +81,10 @@ export default function Dashboard() {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <div className="bg-white p-6 rounded-xl shadow-sm border border-secondary-200 h-96 flex items-center justify-center text-secondary-400">
+                <div className="bg-white dark:bg-secondary-900 p-6 rounded-xl shadow-sm border border-secondary-200 dark:border-secondary-800 h-96 flex items-center justify-center text-secondary-400 dark:text-secondary-500">
                     Chart Placeholder (Attendance)
                 </div>
-                <div className="bg-white p-6 rounded-xl shadow-sm border border-secondary-200 h-96 flex items-center justify-center text-secondary-400">
+                <div className="bg-white dark:bg-secondary-900 p-6 rounded-xl shadow-sm border border-secondary-200 dark:border-secondary-800 h-96 flex items-center justify-center text-secondary-400 dark:text-secondary-500">
                     Chart Placeholder (Performance)
                 </div>
             </div>
