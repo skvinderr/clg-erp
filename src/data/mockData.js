@@ -1195,3 +1195,38 @@ export const systemSettings = {
         push: true
     }
 };
+
+export const auditLogs = [
+    { id: 'LOG001', action: 'Login Success', user: 'Admin User', role: 'Admin', timestamp: '2024-01-20 10:00:05 AM', ip: '192.168.1.10', status: 'Success' },
+    { id: 'LOG002', action: 'Update Fee Structure', user: 'Registrar', role: 'Admin', timestamp: '2024-01-19 02:45:12 PM', ip: '192.168.1.15', status: 'Success' },
+    { id: 'LOG003', action: 'Login Failed', user: 'Unknown', role: 'N/A', timestamp: '2024-01-19 09:15:00 AM', ip: '10.0.0.5', status: 'Failed' },
+    { id: 'LOG004', action: 'View Student Profile', user: 'Dr. Smith', role: 'Faculty', timestamp: '2024-01-18 11:30:22 AM', ip: '192.168.1.20', status: 'Success' },
+    { id: 'LOG005', action: 'Delete Course', user: 'Admin User', role: 'Admin', timestamp: '2024-01-18 04:20:10 PM', ip: '192.168.1.10', status: 'Warning' }
+];
+
+export const securityPolicies = {
+    passwordPolicy: {
+        minLength: 8,
+        requireUppercase: true,
+        requireLowercase: true,
+        requireNumbers: true,
+        requireSymbols: true,
+        expiryDays: 90
+    },
+    sessionPolicy: {
+        timeoutMinutes: 30,
+        maxConcurrentSessions: 1
+    },
+    lockoutPolicy: {
+        maxAttempts: 5,
+        lockoutDurationMinutes: 15
+    },
+    ipWhitelist: ['192.168.1.0/24', '10.0.0.0/8']
+};
+
+export const complianceDocuments = [
+    { id: 'DOC001', title: 'Privacy Policy', version: '2.1', lastUpdated: '2023-12-01', status: 'Active' },
+    { id: 'DOC002', title: 'Terms of Service', version: '1.5', lastUpdated: '2023-11-15', status: 'Active' },
+    { id: 'DOC003', title: 'Data Retention Policy', version: '1.0', lastUpdated: '2023-06-20', status: 'Under Review' },
+    { id: 'DOC004', title: 'GDPR Compliance Statement', version: '1.2', lastUpdated: '2023-08-10', status: 'Active' }
+];

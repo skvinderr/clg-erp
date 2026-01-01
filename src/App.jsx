@@ -46,6 +46,11 @@ import AcademicSetup from './pages/admin/AcademicSetup';
 import CommunicationHub from './pages/admin/CommunicationHub';
 import ReportsAnalytics from './pages/admin/ReportsAnalytics';
 import SystemSettings from './pages/admin/SystemSettings';
+import SecurityDashboard from './pages/admin/security/SecurityDashboard';
+import AccessControl from './pages/admin/security/AccessControl';
+import AuditLogs from './pages/admin/security/AuditLogs';
+import DataPrivacy from './pages/admin/security/DataPrivacy';
+import ComplianceDocs from './pages/admin/security/ComplianceDocs';
 
 // Protected Route Wrapper
 const ProtectedRoute = ({ children, allowedRoles = [] }) => {
@@ -353,16 +358,37 @@ function App() {
               </ProtectedRoute>
             } />
 
+            {/* Security & Compliance Routes */}
+            <Route path="admin/security" element={
+              <ProtectedRoute allowedRoles={['Admin']}>
+                <SecurityDashboard />
+              </ProtectedRoute>
+            } />
+            <Route path="admin/security/access" element={
+              <ProtectedRoute allowedRoles={['Admin']}>
+                <AccessControl />
+              </ProtectedRoute>
+            } />
+            <Route path="admin/security/audit" element={
+              <ProtectedRoute allowedRoles={['Admin']}>
+                <AuditLogs />
+              </ProtectedRoute>
+            } />
+            <Route path="admin/security/privacy" element={
+              <ProtectedRoute allowedRoles={['Admin']}>
+                <DataPrivacy />
+              </ProtectedRoute>
+            } />
+            <Route path="admin/security/compliance" element={
+              <ProtectedRoute allowedRoles={['Admin']}>
+                <ComplianceDocs />
+              </ProtectedRoute>
+            } />
+
             <Route path="reports" element={<PlaceholderPage title="Reports & Analytics" />} />
           </Route>
 
-          {/* Separate Layout for Student Portal */}
-          {/* Student Portal Route */}
-          <Route path="student-portal" element={
-            <ProtectedRoute allowedRoles={['Student']}>
-              <StudentDashboard />
-            </ProtectedRoute>
-          } />
+
         </Routes>
       </Router>
     </AuthProvider>

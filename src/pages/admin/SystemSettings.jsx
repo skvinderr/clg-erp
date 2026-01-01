@@ -134,6 +134,20 @@ const SystemSettings = () => {
                 <div className="space-y-6">
                     <div className="bg-white p-6 rounded-xl shadow-sm border border-secondary-200">
                         <h2 className="text-lg font-bold text-secondary-900 mb-6 flex items-center gap-2">
+                            <Shield className="text-green-600" />
+                            Security & Compliance
+                        </h2>
+                        <p className="text-sm text-secondary-500 mb-4">Manage access control, audit logs, and data privacy.</p>
+                        <button
+                            onClick={() => navigate('/admin/security')}
+                            className="w-full py-2 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 mb-3"
+                        >
+                            Open Security Dashboard
+                        </button>
+                    </div>
+
+                    <div className="bg-white p-6 rounded-xl shadow-sm border border-secondary-200">
+                        <h2 className="text-lg font-bold text-secondary-900 mb-6 flex items-center gap-2">
                             <Database className="text-purple-600" />
                             Backup & Restore
                         </h2>
