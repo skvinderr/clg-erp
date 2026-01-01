@@ -51,6 +51,12 @@ import AccessControl from './pages/admin/security/AccessControl';
 import AuditLogs from './pages/admin/security/AuditLogs';
 import DataPrivacy from './pages/admin/security/DataPrivacy';
 import ComplianceDocs from './pages/admin/security/ComplianceDocs';
+import IntegrationHub from './pages/admin/integrations/IntegrationHub';
+import PaymentSettings from './pages/admin/integrations/PaymentSettings';
+import DeveloperPortal from './pages/admin/api/DeveloperPortal';
+import AnalyticsDashboard from './pages/admin/analytics/AnalyticsDashboard';
+import SmartTimetable from './pages/admin/academic/SmartTimetable';
+import CollaborationHub from './pages/collaboration/CollaborationHub';
 
 // Protected Route Wrapper
 const ProtectedRoute = ({ children, allowedRoles = [] }) => {
@@ -382,6 +388,40 @@ function App() {
             <Route path="admin/security/compliance" element={
               <ProtectedRoute allowedRoles={['Admin']}>
                 <ComplianceDocs />
+              </ProtectedRoute>
+            } />
+
+            {/* Integrations & API Routes */}
+            <Route path="admin/integrations" element={
+              <ProtectedRoute allowedRoles={['Admin']}>
+                <IntegrationHub />
+              </ProtectedRoute>
+            } />
+            <Route path="admin/integrations/payments" element={
+              <ProtectedRoute allowedRoles={['Admin']}>
+                <PaymentSettings />
+              </ProtectedRoute>
+            } />
+            <Route path="admin/api" element={
+              <ProtectedRoute allowedRoles={['Admin']}>
+                <DeveloperPortal />
+              </ProtectedRoute>
+            } />
+
+            {/* Advanced Features Routes */}
+            <Route path="admin/analytics" element={
+              <ProtectedRoute allowedRoles={['Admin']}>
+                <AnalyticsDashboard />
+              </ProtectedRoute>
+            } />
+            <Route path="admin/smart-timetable" element={
+              <ProtectedRoute allowedRoles={['Admin']}>
+                <SmartTimetable />
+              </ProtectedRoute>
+            } />
+            <Route path="collaboration" element={
+              <ProtectedRoute allowedRoles={['Admin', 'Faculty', 'Student']}>
+                <CollaborationHub />
               </ProtectedRoute>
             } />
 

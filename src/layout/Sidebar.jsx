@@ -16,7 +16,11 @@ import {
     Briefcase,
 
     Shield,
-    LogOut
+    LogOut,
+    Plug,
+    Code,
+    Brain,
+    MessageCircle
 } from 'lucide-react';
 import { clsx } from 'clsx';
 
@@ -38,6 +42,11 @@ export function Sidebar({ collapsed, setCollapsed }) {
         { icon: BedDouble, label: 'Hostel', path: '/hostel', roles: ['Admin', 'Student'] },
         { icon: Bus, label: 'Transport', path: '/transport', roles: ['Admin', 'Student'] },
         { icon: Briefcase, label: 'Placement', path: '/placement', roles: ['Admin', 'Student'] },
+        { icon: Plug, label: 'Integrations', path: '/admin/integrations', roles: ['Admin'] },
+        { icon: Code, label: 'Developer API', path: '/admin/api', roles: ['Admin'] },
+        { icon: Brain, label: 'AI Analytics', path: '/admin/analytics', roles: ['Admin'] },
+        { icon: CalendarCheck, label: 'Smart Timetable', path: '/admin/smart-timetable', roles: ['Admin'] },
+        { icon: MessageCircle, label: 'Collaboration', path: '/collaboration', roles: ['Admin', 'Faculty', 'Student'] },
         { icon: BarChart3, label: 'Reports', path: '/reports', roles: ['Admin'] },
     ];
 

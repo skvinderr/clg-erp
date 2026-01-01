@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Sidebar } from './Sidebar';
 import { Header } from './Header';
+import AIChatbot from '../components/common/AIChatbot';
 
 export default function DashboardLayout() {
     const [collapsed, setCollapsed] = useState(false);
@@ -18,6 +19,8 @@ export default function DashboardLayout() {
                         <Outlet />
                     </div>
                 </main>
+
+                <AIChatbot />
 
                 <footer className="bg-white dark:bg-secondary-900 border-t border-secondary-200 dark:border-secondary-800 py-4 px-6 text-center text-sm text-secondary-500 dark:text-secondary-400 transition-colors">
                     © {new Date().getFullYear()} College ERP System. All rights reserved.
