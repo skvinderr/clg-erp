@@ -908,3 +908,178 @@ export const grades = [
         cgpa: 9.25
     }
 ];
+
+export const feeStructures = [
+    {
+        id: 'FEE_CS_6',
+        program: 'B.Tech',
+        department: 'Computer Science',
+        semester: 6,
+        academicYear: '2023-2024',
+        components: [
+            { name: 'Tuition Fee', amount: 45000, mandatory: true },
+            { name: 'Development Fee', amount: 5000, mandatory: true },
+            { name: 'Lab Fee', amount: 3000, mandatory: true },
+            { name: 'Library Fee', amount: 2000, mandatory: true },
+            { name: 'Examination Fee', amount: 1500, mandatory: true },
+            { name: 'Internet Charges', amount: 1000, mandatory: true }
+        ],
+        totalAmount: 57500,
+        dueDate: '2024-01-15',
+        lateFeeRule: '100 per day after due date'
+    }
+];
+
+export const studentFees = [
+    {
+        studentId: 'STU001',
+        feeStructureId: 'FEE_CS_6',
+        totalAmount: 57500,
+        paidAmount: 40000,
+        dueAmount: 17500,
+        status: 'Partial', // Paid, Partial, Unpaid
+        scholarship: 0,
+        fine: 0
+    },
+    {
+        studentId: 'STU002',
+        feeStructureId: 'FEE_CS_6',
+        totalAmount: 57500,
+        paidAmount: 57500,
+        dueAmount: 0,
+        status: 'Paid',
+        scholarship: 0,
+        fine: 0
+    },
+    {
+        studentId: 'STU003',
+        feeStructureId: 'FEE_CS_6',
+        totalAmount: 57500,
+        paidAmount: 0,
+        dueAmount: 57500,
+        status: 'Unpaid',
+        scholarship: 0,
+        fine: 500
+    }
+];
+
+export const feePayments = [
+    {
+        id: 'TXN1001',
+        studentId: 'STU001',
+        date: '2024-01-10',
+        amount: 40000,
+        mode: 'Online', // Online, Cash, Cheque
+        status: 'Success',
+        reference: 'PAY_123456789'
+    },
+    {
+        id: 'TXN1002',
+        studentId: 'STU002',
+        date: '2024-01-05',
+        amount: 57500,
+        mode: 'Online',
+        status: 'Success',
+    }
+];
+
+export const libraryBooks = [
+    {
+        id: 'LIB001',
+        isbn: '978-0131103627',
+        title: 'The C Programming Language',
+        author: 'Brian W. Kernighan, Dennis M. Ritchie',
+        publisher: 'Prentice Hall',
+        category: 'Computer Science',
+        edition: '2nd',
+        copies: 10,
+        available: 8,
+        location: 'Rack A-12',
+        cover: 'https://m.media-amazon.com/images/I/51L7aRvbU-L._AC_UF1000,1000_QL80_.jpg'
+    },
+    {
+        id: 'LIB002',
+        isbn: '978-0132350884',
+        title: 'Clean Code',
+        author: 'Robert C. Martin',
+        publisher: 'Prentice Hall',
+        category: 'Software Engineering',
+        edition: '1st',
+        copies: 15,
+        available: 12,
+        location: 'Rack B-05',
+        cover: 'https://m.media-amazon.com/images/I/41xShlnTZTL._AC_UF1000,1000_QL80_.jpg'
+    },
+    {
+        id: 'LIB003',
+        isbn: '978-0262033848',
+        title: 'Introduction to Algorithms',
+        author: 'Thomas H. Cormen',
+        publisher: 'MIT Press',
+        category: 'Computer Science',
+        edition: '3rd',
+        copies: 20,
+        available: 5,
+        location: 'Rack A-15',
+        cover: 'https://m.media-amazon.com/images/I/61Pgdn8Ys-L._AC_UF1000,1000_QL80_.jpg'
+    },
+    {
+        id: 'LIB004',
+        isbn: '978-0134685991',
+        title: 'Effective Java',
+        author: 'Joshua Bloch',
+        publisher: 'Addison-Wesley',
+        category: 'Programming',
+        edition: '3rd',
+        copies: 8,
+        available: 8,
+        location: 'Rack C-02',
+        cover: 'https://m.media-amazon.com/images/I/41-sN-mzwKL._AC_UF1000,1000_QL80_.jpg'
+    },
+    {
+        id: 'LIB005',
+        isbn: '978-1491950357',
+        title: 'Designing Data-Intensive Applications',
+        author: 'Martin Kleppmann',
+        publisher: 'O\'Reilly Media',
+        category: 'Database',
+        edition: '1st',
+        copies: 12,
+        available: 2,
+        location: 'Rack B-10',
+        cover: 'https://m.media-amazon.com/images/I/91rr3B8Kj4L._AC_UF1000,1000_QL80_.jpg'
+    }
+];
+
+export const issuedBooks = [
+    {
+        id: 'ISS1001',
+        bookId: 'LIB001',
+        studentId: 'STU001',
+        issueDate: '2023-12-15',
+        dueDate: '2023-12-29',
+        returnDate: null,
+        status: 'Overdue',
+        fine: 30
+    },
+    {
+        id: 'ISS1002',
+        bookId: 'LIB003',
+        studentId: 'STU001',
+        issueDate: '2024-01-05',
+        dueDate: '2024-01-19',
+        returnDate: null,
+        status: 'Issued',
+        fine: 0
+    },
+    {
+        id: 'ISS1003',
+        bookId: 'LIB002',
+        studentId: 'STU002',
+        issueDate: '2024-01-02',
+        dueDate: '2024-01-16',
+        returnDate: '2024-01-10',
+        status: 'Returned',
+        fine: 0
+    }
+];

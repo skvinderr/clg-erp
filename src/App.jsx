@@ -18,6 +18,15 @@ import ExamDashboard from './pages/examination/ExamDashboard';
 import ExamSchedule from './pages/examination/ExamSchedule';
 import GradeEntry from './pages/examination/GradeEntry';
 import ResultView from './pages/examination/ResultView';
+import FeeDashboard from './pages/fees/FeeDashboard';
+import FeeStructure from './pages/fees/FeeStructure';
+import FeePayment from './pages/fees/FeePayment';
+import FeeHistory from './pages/fees/FeeHistory';
+import FeeReports from './pages/fees/FeeReports';
+import LibraryDashboard from './pages/library/LibraryDashboard';
+import BookCatalog from './pages/library/BookCatalog';
+import IssueReturn from './pages/library/IssueReturn';
+import DigitalLibrary from './pages/library/DigitalLibrary';
 
 // Protected Route Wrapper
 const ProtectedRoute = ({ children, allowedRoles = [] }) => {
@@ -162,8 +171,55 @@ function App() {
               </ProtectedRoute>
             } />
 
-            <Route path="fees" element={<PlaceholderPage title="Fee Management" />} />
-            <Route path="library" element={<PlaceholderPage title="Library Management" />} />
+            {/* Fee Management Routes */}
+            <Route path="fees" element={
+              <ProtectedRoute allowedRoles={['Admin', 'Student']}>
+                <FeeDashboard />
+              </ProtectedRoute>
+            } />
+            <Route path="fees/structure" element={
+              <ProtectedRoute allowedRoles={['Admin']}>
+                <FeeStructure />
+              </ProtectedRoute>
+            } />
+            <Route path="fees/payment" element={
+              <ProtectedRoute allowedRoles={['Student']}>
+                <FeePayment />
+              </ProtectedRoute>
+            } />
+            <Route path="fees/history" element={
+              <ProtectedRoute allowedRoles={['Student']}>
+                <FeeHistory />
+              </ProtectedRoute>
+            } />
+            <Route path="fees/reports" element={
+              <ProtectedRoute allowedRoles={['Admin']}>
+                <FeeReports />
+              </ProtectedRoute>
+            } />
+
+            {/* Library Management Routes */}
+            <Route path="library" element={
+              <ProtectedRoute allowedRoles={['Admin', 'Student', 'Faculty']}>
+                <LibraryDashboard />
+              </ProtectedRoute>
+            } />
+            <Route path="library/catalog" element={
+              <ProtectedRoute allowedRoles={['Admin', 'Student', 'Faculty']}>
+                <BookCatalog />
+              </ProtectedRoute>
+            } />
+            <Route path="library/issue-return" element={
+              <ProtectedRoute allowedRoles={['Admin']}>
+                <IssueReturn />
+              </ProtectedRoute>
+            } />
+            <Route path="library/digital" element={
+              <ProtectedRoute allowedRoles={['Admin', 'Student', 'Faculty']}>
+                <DigitalLibrary />
+              </ProtectedRoute>
+            } />
+
             <Route path="reports" element={<PlaceholderPage title="Reports & Analytics" />} />
           </Route>
 
