@@ -1127,5 +1127,71 @@ export const transportDrivers = [
 
 export const studentTransport = [
     { studentId: 'STU001', routeId: 'RT001', stop: 'Mall Road', passStatus: 'Active', validTill: '2024-05-31' },
-    { studentId: 'STU002', routeId: 'RT002', stop: 'North Ext', passStatus: 'Expired', validTill: '2023-12-31' }
 ];
+
+export const placementCompanies = [
+    { id: 'CMP001', name: 'Tech Solutions Inc.', industry: 'IT Services', contactPerson: 'Alice Smith', email: 'hr@techsolutions.com', phone: '9876543210', location: 'Bangalore' },
+    { id: 'CMP002', name: 'Innovate Corp', industry: 'Product Development', contactPerson: 'Bob Jones', email: 'jobs@innovate.com', phone: '9123456780', location: 'Hyderabad' },
+    { id: 'CMP003', name: 'Global Systems', industry: 'Consulting', contactPerson: 'Charlie Brown', email: 'careers@globalsys.com', phone: '9988776655', location: 'Pune' }
+];
+
+export const placementJobs = [
+    { id: 'JOB001', companyId: 'CMP001', title: 'Software Engineer', type: 'Full Time', package: '6-8 LPA', eligibility: 'B.Tech CS/IT, >7.0 CGPA', deadline: '2024-02-15', description: 'Role involves full stack development using React and Node.js.' },
+    { id: 'JOB002', companyId: 'CMP002', title: 'Data Analyst Intern', type: 'Internship', package: '25k/month', eligibility: 'Any B.Tech, >6.5 CGPA', deadline: '2024-02-20', description: 'Work with data visualization tools and SQL.' },
+    { id: 'JOB003', companyId: 'CMP003', title: 'Business Associate', type: 'Full Time', package: '5 LPA', eligibility: 'All Branches, No Backlogs', deadline: '2024-02-25', description: 'Client facing role requiring good communication skills.' }
+];
+
+export const placementDrives = [
+    { id: 'DRV001', companyId: 'CMP001', date: '2024-02-20', time: '09:00 AM', venue: 'Auditorium', rounds: ['Aptitude Test', 'Technical Interview', 'HR Interview'] },
+    { id: 'DRV002', companyId: 'CMP002', date: '2024-02-25', time: '10:00 AM', venue: 'Seminar Hall', rounds: ['Online Coding', 'Interview'] }
+];
+
+export const studentSkills = [
+    { studentId: 'STU001', skills: ['Java', 'Python', 'React', 'SQL'], certifications: ['AWS Cloud Practitioner', 'Oracle Java SE'], resumeLink: '#' },
+    { studentId: 'STU002', skills: ['C++', 'Data Structures', 'HTML/CSS'], certifications: [], resumeLink: '#' }
+];
+
+export const studentApplications = [
+    { id: 'APP001', studentId: 'STU001', jobId: 'JOB001', status: 'Shortlisted', appliedDate: '2024-01-15' },
+    { id: 'APP002', studentId: 'STU001', jobId: 'JOB002', status: 'Applied', appliedDate: '2024-01-18' }
+];
+
+export const adminUsers = [
+    { id: 'ADM001', name: 'Admin User', email: 'admin@college.edu', role: 'Admin', status: 'Active', lastLogin: '2024-01-20 10:00 AM' },
+    { id: 'ADM002', name: 'Registrar', email: 'registrar@college.edu', role: 'Admin', status: 'Active', lastLogin: '2024-01-19 02:30 PM' }
+];
+
+export const academicYears = [
+    { id: 'AY2023-24', name: '2023-2024', status: 'Current', startDate: '2023-06-01', endDate: '2024-05-31' },
+    { id: 'AY2024-25', name: '2024-2025', status: 'Upcoming', startDate: '2024-06-01', endDate: '2025-05-31' }
+];
+
+export const departments = [
+    { id: 'DEP001', name: 'Computer Science', code: 'CSE', head: 'Dr. Smith', facultyCount: 15, studentCount: 450 },
+    { id: 'DEP002', name: 'Electronics', code: 'ECE', head: 'Dr. Jones', facultyCount: 12, studentCount: 380 },
+    { id: 'DEP003', name: 'Mechanical', code: 'ME', head: 'Dr. Brown', facultyCount: 10, studentCount: 300 }
+];
+
+export const courses = [
+    { id: 'CRS001', code: 'CS101', name: 'Intro to Programming', departmentId: 'DEP001', credits: 4, type: 'Core' },
+    { id: 'CRS002', code: 'CS201', name: 'Data Structures', departmentId: 'DEP001', credits: 4, type: 'Core' },
+    { id: 'CRS003', code: 'EC101', name: 'Digital Logic', departmentId: 'DEP002', credits: 3, type: 'Core' }
+];
+
+export const feedback = [
+    { id: 'FB001', type: 'Suggestion', subject: 'Library Hours', message: 'Please extend library hours during exams.', date: '2024-01-15', status: 'Pending' },
+    { id: 'FB002', type: 'Complaint', subject: 'Water Cooler', message: 'Water cooler on 2nd floor is not working.', date: '2024-01-18', status: 'Resolved' }
+];
+
+export const systemSettings = {
+    institutionName: 'College ERP Institute',
+    email: 'contact@college.edu',
+    phone: '123-456-7890',
+    address: '123 Education Lane, Knowledge City',
+    theme: 'Light',
+    notifications: {
+        email: true,
+        sms: false,
+        push: true
+    }
+};

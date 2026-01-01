@@ -35,6 +35,17 @@ import TransportDashboard from './pages/transport/TransportDashboard';
 import RouteManagement from './pages/transport/RouteManagement';
 import VehicleManagement from './pages/transport/VehicleManagement';
 import BusPass from './pages/transport/BusPass';
+import PlacementDashboard from './pages/placement/PlacementDashboard';
+import PlacementStudentProfile from './pages/placement/StudentProfile';
+import CompanyManagement from './pages/placement/CompanyManagement';
+import JobPortal from './pages/placement/JobPortal';
+import TrainingModule from './pages/placement/TrainingModule';
+import AdminDashboard from './pages/admin/AdminDashboard';
+import UserManagement from './pages/admin/UserManagement';
+import AcademicSetup from './pages/admin/AcademicSetup';
+import CommunicationHub from './pages/admin/CommunicationHub';
+import ReportsAnalytics from './pages/admin/ReportsAnalytics';
+import SystemSettings from './pages/admin/SystemSettings';
 
 // Protected Route Wrapper
 const ProtectedRoute = ({ children, allowedRoles = [] }) => {
@@ -280,6 +291,65 @@ function App() {
             <Route path="transport/pass" element={
               <ProtectedRoute allowedRoles={['Student']}>
                 <BusPass />
+              </ProtectedRoute>
+            } />
+
+            {/* Placement Management Routes */}
+            <Route path="placement" element={
+              <ProtectedRoute allowedRoles={['Admin', 'Student']}>
+                <PlacementDashboard />
+              </ProtectedRoute>
+            } />
+            <Route path="placement/profile" element={
+              <ProtectedRoute allowedRoles={['Student']}>
+                <PlacementStudentProfile />
+              </ProtectedRoute>
+            } />
+            <Route path="placement/companies" element={
+              <ProtectedRoute allowedRoles={['Admin']}>
+                <CompanyManagement />
+              </ProtectedRoute>
+            } />
+            <Route path="placement/jobs" element={
+              <ProtectedRoute allowedRoles={['Admin', 'Student']}>
+                <JobPortal />
+              </ProtectedRoute>
+            } />
+            <Route path="placement/training" element={
+              <ProtectedRoute allowedRoles={['Student']}>
+                <TrainingModule />
+              </ProtectedRoute>
+            } />
+
+            {/* Administration Routes */}
+            <Route path="admin" element={
+              <ProtectedRoute allowedRoles={['Admin']}>
+                <AdminDashboard />
+              </ProtectedRoute>
+            } />
+            <Route path="admin/users" element={
+              <ProtectedRoute allowedRoles={['Admin']}>
+                <UserManagement />
+              </ProtectedRoute>
+            } />
+            <Route path="admin/academic" element={
+              <ProtectedRoute allowedRoles={['Admin']}>
+                <AcademicSetup />
+              </ProtectedRoute>
+            } />
+            <Route path="admin/communication" element={
+              <ProtectedRoute allowedRoles={['Admin']}>
+                <CommunicationHub />
+              </ProtectedRoute>
+            } />
+            <Route path="admin/reports" element={
+              <ProtectedRoute allowedRoles={['Admin']}>
+                <ReportsAnalytics />
+              </ProtectedRoute>
+            } />
+            <Route path="admin/settings" element={
+              <ProtectedRoute allowedRoles={['Admin']}>
+                <SystemSettings />
               </ProtectedRoute>
             } />
 

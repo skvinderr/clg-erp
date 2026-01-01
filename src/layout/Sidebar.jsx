@@ -12,7 +12,9 @@ import {
     ChevronLeft,
     ChevronRight,
     BedDouble,
-    Bus
+    Bus,
+    Briefcase,
+    Shield
 } from 'lucide-react';
 import { clsx } from 'clsx';
 
@@ -23,6 +25,7 @@ export function Sidebar({ collapsed, setCollapsed }) {
 
     const navItems = [
         { icon: LayoutDashboard, label: 'Dashboard', path: '/dashboard', roles: ['Admin'] },
+        { icon: Shield, label: 'Administration', path: '/admin', roles: ['Admin'] },
         { icon: Users, label: 'Students', path: '/students', roles: ['Admin', 'Faculty'] },
         { icon: GraduationCap, label: 'Faculty', path: '/faculty', roles: ['Admin'] },
         { icon: CalendarCheck, label: 'Attendance', path: '/attendance', roles: ['Admin', 'Faculty'] },
@@ -31,6 +34,7 @@ export function Sidebar({ collapsed, setCollapsed }) {
         { icon: Library, label: 'Library', path: '/library', roles: ['Admin', 'Faculty', 'Student'] },
         { icon: BedDouble, label: 'Hostel', path: '/hostel', roles: ['Admin', 'Student'] },
         { icon: Bus, label: 'Transport', path: '/transport', roles: ['Admin', 'Student'] },
+        { icon: Briefcase, label: 'Placement', path: '/placement', roles: ['Admin', 'Student'] },
         { icon: BarChart3, label: 'Reports', path: '/reports', roles: ['Admin'] },
     ];
 

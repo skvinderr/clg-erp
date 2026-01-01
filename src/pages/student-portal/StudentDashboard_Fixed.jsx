@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Calendar, Clock, Book, TrendingUp, AlertCircle, CheckCircle, Bell, Library, FileText, Megaphone, Download, BedDouble, Bus } from 'lucide-react';
+import { Calendar, Clock, Book, TrendingUp, AlertCircle, CheckCircle, Bell, Library, FileText, Megaphone, Download, BedDouble, Bus, Briefcase } from 'lucide-react';
 import { students, notices } from '../../data/mockData';
 
 export default function StudentDashboard() {
@@ -246,6 +246,19 @@ export default function StudentDashboard() {
                                 <div>
                                     <h3 className="font-bold text-secondary-900 group-hover:text-primary-700">Transport</h3>
                                     <p className="text-sm text-secondary-500">Bus pass, route info, and live tracking</p>
+                                </div>
+                            </div>
+
+                            <div
+                                onClick={() => navigate('/placement')}
+                                className="flex items-center gap-4 p-4 border border-secondary-200 rounded-xl hover:border-primary-500 hover:bg-primary-50 transition-all cursor-pointer group"
+                            >
+                                <div className="p-3 bg-green-100 text-green-600 rounded-lg group-hover:bg-white group-hover:text-primary-600 transition-colors">
+                                    <Briefcase size={24} />
+                                </div>
+                                <div>
+                                    <h3 className="font-bold text-secondary-900 group-hover:text-primary-700">Placement Cell</h3>
+                                    <p className="text-sm text-secondary-500">Jobs, internships, and training</p>
                                 </div>
                             </div>
                         </div>
