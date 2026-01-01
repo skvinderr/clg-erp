@@ -1080,6 +1080,52 @@ export const issuedBooks = [
         dueDate: '2024-01-16',
         returnDate: '2024-01-10',
         status: 'Returned',
-        fine: 0
     }
+];
+
+export const hostelBuildings = [
+    { id: 'H1', name: 'Boys Hostel A', type: 'Boys', capacity: 200, floors: 4, warden: 'Mr. Sharma' },
+    { id: 'H2', name: 'Girls Hostel B', type: 'Girls', capacity: 150, floors: 3, warden: 'Mrs. Gupta' }
+];
+
+export const hostelRooms = [
+    { id: 'R101', buildingId: 'H1', number: '101', floor: 1, type: 'Double', capacity: 2, occupants: ['STU001', 'STU004'] },
+    { id: 'R102', buildingId: 'H1', number: '102', floor: 1, type: 'Single', capacity: 1, occupants: [] },
+    { id: 'R103', buildingId: 'H1', number: '103', floor: 1, type: 'Triple', capacity: 3, occupants: ['STU005'] },
+    { id: 'R201', buildingId: 'H2', number: '201', floor: 2, type: 'Double', capacity: 2, occupants: ['STU002'] }
+];
+
+export const messMenu = [
+    { day: 'Monday', breakfast: 'Idli Sambar', lunch: 'Rice, Dal, Mixed Veg', snack: 'Tea, Biscuits', dinner: 'Chapati, Paneer Butter Masala' },
+    { day: 'Tuesday', breakfast: 'Poha', lunch: 'Rice, Rajma', snack: 'Coffee, Samosa', dinner: 'Fried Rice, Manchurian' },
+    { day: 'Wednesday', breakfast: 'Upma', lunch: 'Rice, Sambar, Aloo Fry', snack: 'Tea, Cake', dinner: 'Chapati, Egg Curry' },
+    { day: 'Thursday', breakfast: 'Dosa', lunch: 'Rice, Dal, Bhindi Fry', snack: 'Coffee, Puff', dinner: 'Biryani, Raita' },
+    { day: 'Friday', breakfast: 'Paratha', lunch: 'Rice, Kadhi', snack: 'Tea, Vada', dinner: 'Chapati, Kofta' },
+    { day: 'Saturday', breakfast: 'Puri Bhaji', lunch: 'Rice, Dal, Jeera Aloo', snack: 'Coffee, Sandwich', dinner: 'Pasta' },
+    { day: 'Sunday', breakfast: 'Bread Omelette', lunch: 'Special Thali', snack: 'Tea, Cookies', dinner: 'Light Khichdi' }
+];
+
+export const hostelComplaints = [
+    { id: 'CMP001', studentId: 'STU001', type: 'Electrical', description: 'Fan not working in Room 101', status: 'Pending', date: '2024-01-10' },
+    { id: 'CMP002', studentId: 'STU002', type: 'Plumbing', description: 'Leaking tap in bathroom', status: 'Resolved', date: '2024-01-05' }
+];
+
+export const transportRoutes = [
+    { id: 'RT001', routeNo: 'R-10', start: 'City Centre', end: 'College Campus', stops: ['City Centre', 'Mall Road', 'Station', 'Campus'], busId: 'BUS001', time: '7:30 AM' },
+    { id: 'RT002', routeNo: 'R-12', start: 'North Extension', end: 'College Campus', stops: ['North Ext', 'Highway Plaza', 'Campus'], busId: 'BUS002', time: '7:45 AM' }
+];
+
+export const transportVehicles = [
+    { id: 'BUS001', regNo: 'KA-01-AB-1234', model: 'Tata Starbus', capacity: 40, status: 'Active', driverId: 'DRV001', mileage: 12500, lastService: '2023-12-01' },
+    { id: 'BUS002', regNo: 'KA-01-XY-5678', model: 'Ashok Leyland', capacity: 50, status: 'Maintenance', driverId: 'DRV002', mileage: 15000, lastService: '2023-11-15' }
+];
+
+export const transportDrivers = [
+    { id: 'DRV001', name: 'Ramesh Kumar', license: 'DL-1234567890', phone: '9876543210', experience: '5 Years' },
+    { id: 'DRV002', name: 'Suresh Singh', license: 'DL-0987654321', phone: '9123456780', experience: '8 Years' }
+];
+
+export const studentTransport = [
+    { studentId: 'STU001', routeId: 'RT001', stop: 'Mall Road', passStatus: 'Active', validTill: '2024-05-31' },
+    { studentId: 'STU002', routeId: 'RT002', stop: 'North Ext', passStatus: 'Expired', validTill: '2023-12-31' }
 ];

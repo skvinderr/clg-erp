@@ -27,6 +27,14 @@ import LibraryDashboard from './pages/library/LibraryDashboard';
 import BookCatalog from './pages/library/BookCatalog';
 import IssueReturn from './pages/library/IssueReturn';
 import DigitalLibrary from './pages/library/DigitalLibrary';
+import HostelDashboard from './pages/hostel/HostelDashboard';
+import RoomAllocation from './pages/hostel/RoomAllocation';
+import MessManagement from './pages/hostel/MessManagement';
+import HostelComplaints from './pages/hostel/HostelComplaints';
+import TransportDashboard from './pages/transport/TransportDashboard';
+import RouteManagement from './pages/transport/RouteManagement';
+import VehicleManagement from './pages/transport/VehicleManagement';
+import BusPass from './pages/transport/BusPass';
 
 // Protected Route Wrapper
 const ProtectedRoute = ({ children, allowedRoles = [] }) => {
@@ -91,12 +99,23 @@ function App() {
           <Route path="/login" element={<Login />} />
 
           <Route path="/" element={
-            <ProtectedRoute allowedRoles={['Admin', 'Faculty']}>
+            <ProtectedRoute allowedRoles={['Admin', 'Faculty', 'Student']}>
               <DashboardLayout />
             </ProtectedRoute>
           }>
             <Route index element={<Navigate to="/dashboard" replace />} />
-            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="dashboard" element={
+              <ProtectedRoute allowedRoles={['Admin', 'Faculty']}>
+                <Dashboard />
+              </ProtectedRoute>
+            } />
+
+            {/* Student Portal Route */}
+            <Route path="student-portal" element={
+              <ProtectedRoute allowedRoles={['Student']}>
+                <StudentDashboard />
+              </ProtectedRoute>
+            } />
 
             {/* Student Module Routes */}
             <Route path="students" element={
@@ -220,11 +239,56 @@ function App() {
               </ProtectedRoute>
             } />
 
+            {/* Hostel Management Routes */}
+            <Route path="hostel" element={
+              <ProtectedRoute allowedRoles={['Admin', 'Student']}>
+                <HostelDashboard />
+              </ProtectedRoute>
+            } />
+            <Route path="hostel/allocation" element={
+              <ProtectedRoute allowedRoles={['Admin']}>
+                <RoomAllocation />
+              </ProtectedRoute>
+            } />
+            <Route path="hostel/mess" element={
+              <ProtectedRoute allowedRoles={['Admin', 'Student']}>
+                <MessManagement />
+              </ProtectedRoute>
+            } />
+            <Route path="hostel/complaints" element={
+              <ProtectedRoute allowedRoles={['Admin', 'Student']}>
+                <HostelComplaints />
+              </ProtectedRoute>
+            } />
+
+            {/* Transport Management Routes */}
+            <Route path="transport" element={
+              <ProtectedRoute allowedRoles={['Admin', 'Student']}>
+                <TransportDashboard />
+              </ProtectedRoute>
+            } />
+            <Route path="transport/routes" element={
+              <ProtectedRoute allowedRoles={['Admin']}>
+                <RouteManagement />
+              </ProtectedRoute>
+            } />
+            <Route path="transport/vehicles" element={
+              <ProtectedRoute allowedRoles={['Admin']}>
+                <VehicleManagement />
+              </ProtectedRoute>
+            } />
+            <Route path="transport/pass" element={
+              <ProtectedRoute allowedRoles={['Student']}>
+                <BusPass />
+              </ProtectedRoute>
+            } />
+
             <Route path="reports" element={<PlaceholderPage title="Reports & Analytics" />} />
           </Route>
 
           {/* Separate Layout for Student Portal */}
-          <Route path="/student-portal" element={
+          {/* Student Portal Route */}
+          <Route path="student-portal" element={
             <ProtectedRoute allowedRoles={['Student']}>
               <StudentDashboard />
             </ProtectedRoute>

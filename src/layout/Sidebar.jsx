@@ -10,7 +10,9 @@ import {
     Library,
     BarChart3,
     ChevronLeft,
-    ChevronRight
+    ChevronRight,
+    BedDouble,
+    Bus
 } from 'lucide-react';
 import { clsx } from 'clsx';
 
@@ -27,6 +29,8 @@ export function Sidebar({ collapsed, setCollapsed }) {
         { icon: FileText, label: 'Examinations', path: '/examinations', roles: ['Admin', 'Faculty'] },
         { icon: CreditCard, label: 'Fees', path: '/fees', roles: ['Admin', 'Student'] },
         { icon: Library, label: 'Library', path: '/library', roles: ['Admin', 'Faculty', 'Student'] },
+        { icon: BedDouble, label: 'Hostel', path: '/hostel', roles: ['Admin', 'Student'] },
+        { icon: Bus, label: 'Transport', path: '/transport', roles: ['Admin', 'Student'] },
         { icon: BarChart3, label: 'Reports', path: '/reports', roles: ['Admin'] },
     ];
 

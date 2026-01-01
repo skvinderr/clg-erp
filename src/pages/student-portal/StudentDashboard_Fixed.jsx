@@ -1,8 +1,10 @@
 import React from 'react';
-import { Calendar, Clock, Book, TrendingUp, AlertCircle, CheckCircle, Bell, Library, FileText, Megaphone, Download } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Calendar, Clock, Book, TrendingUp, AlertCircle, CheckCircle, Bell, Library, FileText, Megaphone, Download, BedDouble, Bus } from 'lucide-react';
 import { students, notices } from '../../data/mockData';
 
 export default function StudentDashboard() {
+    const navigate = useNavigate();
     // Mock logged in student
     const student = students[0];
 
@@ -18,28 +20,9 @@ export default function StudentDashboard() {
     ];
 
     return (
-        <div className="min-h-screen bg-secondary-50 pb-12">
+        <div className="pb-12">
             {/* Student Navbar */}
-            <nav className="bg-white border-b border-secondary-200 px-6 py-4 sticky top-0 z-10">
-                <div className="max-w-7xl mx-auto flex justify-between items-center">
-                    <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">
-                            C
-                        </div>
-                        <span className="font-bold text-xl text-secondary-900">College ERP</span>
-                    </div>
-                    <div className="flex items-center gap-4">
-                        <button className="p-2 text-secondary-500 hover:bg-secondary-100 rounded-full relative">
-                            <Bell size={20} />
-                            <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
-                        </button>
-                        <div className="flex items-center gap-3">
-                            <img src={student.photo} alt="Profile" className="w-8 h-8 rounded-full object-cover" />
-                            <span className="font-medium text-secondary-700 hidden md:block">{student.name}</span>
-                        </div>
-                    </div>
-                </div>
-            </nav>
+            {/* Navbar removed as it is provided by DashboardLayout */}
 
             <div className="max-w-7xl mx-auto px-6 py-8 space-y-8">
                 {/* Welcome Section */}
@@ -233,6 +216,38 @@ export default function StudentDashboard() {
                                     </p>
                                 </div>
                             ))}
+                        </div>
+                    </div>
+
+                    {/* Quick Links for Hostel & Transport */}
+                    <div className="bg-white rounded-xl shadow-sm border border-secondary-200 p-6 md:col-span-3">
+                        <h2 className="text-lg font-bold text-secondary-900 mb-6">Campus Services</h2>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div
+                                onClick={() => navigate('/hostel')}
+                                className="flex items-center gap-4 p-4 border border-secondary-200 rounded-xl hover:border-primary-500 hover:bg-primary-50 transition-all cursor-pointer group"
+                            >
+                                <div className="p-3 bg-indigo-100 text-indigo-600 rounded-lg group-hover:bg-white group-hover:text-primary-600 transition-colors">
+                                    <BedDouble size={24} />
+                                </div>
+                                <div>
+                                    <h3 className="font-bold text-secondary-900 group-hover:text-primary-700">Hostel & Mess</h3>
+                                    <p className="text-sm text-secondary-500">Room details, mess menu, and complaints</p>
+                                </div>
+                            </div>
+
+                            <div
+                                onClick={() => navigate('/transport')}
+                                className="flex items-center gap-4 p-4 border border-secondary-200 rounded-xl hover:border-primary-500 hover:bg-primary-50 transition-all cursor-pointer group"
+                            >
+                                <div className="p-3 bg-orange-100 text-orange-600 rounded-lg group-hover:bg-white group-hover:text-primary-600 transition-colors">
+                                    <Bus size={24} />
+                                </div>
+                                <div>
+                                    <h3 className="font-bold text-secondary-900 group-hover:text-primary-700">Transport</h3>
+                                    <p className="text-sm text-secondary-500">Bus pass, route info, and live tracking</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
