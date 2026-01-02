@@ -113,20 +113,26 @@ const PlaceholderPage = ({ title }) => (
   </div>
 );
 
+import LandingPage from './pages/LandingPage';
+
+// ... imports
+
 function App() {
   return (
     <AuthProvider>
       <Router>
         <Routes>
+          {/* Public Routes */}
+          <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
 
-          <Route path="/" element={
+          {/* Protected Application Routes */}
+          <Route element={
             <ProtectedRoute allowedRoles={['Admin', 'Faculty', 'Student']}>
               <DashboardLayout />
             </ProtectedRoute>
           }>
-            <Route index element={<Navigate to="/dashboard" replace />} />
-            <Route path="dashboard" element={
+            <Route path="/dashboard" element={
               <ProtectedRoute allowedRoles={['Admin', 'Faculty']}>
                 <Dashboard />
               </ProtectedRoute>
