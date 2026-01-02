@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import {
-    GraduationCap, BookOpen, Users, ShieldCheck,
+import { 
+    GraduationCap, BookOpen, Users, ShieldCheck, 
     ArrowRight, CheckCircle, BarChart, Globe,
     Database, Clock, Smartphone, Layers,
     Award, MapPin, Server
@@ -28,7 +28,7 @@ const LandingPage = () => {
 
     return (
         <div className="min-h-screen bg-white font-sans text-slate-900 overflow-x-hidden">
-
+            
             {/* Navbar */}
             <nav className="fixed w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -62,23 +62,23 @@ const LandingPage = () => {
                         <path d="M0 0 L100 0 L100 100 Z" fill="currentColor" />
                     </svg>
                 </div>
-
+                
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
-                        <motion.div
+                        <motion.div 
                             initial={{ opacity: 0, x: -50 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.8 }}
                         >
                             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-900/50 border border-blue-800 text-blue-300 text-sm font-semibold mb-6">
                                 <span className="relative flex h-3 w-3">
-                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                                    <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
+                                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                                  <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
                                 </span>
                                 #1 Rated Campus Management Solution
                             </div>
                             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
-                                Intelligent <br />
+                                Intelligent <br/>
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
                                     Campus Automation
                                 </span>
@@ -96,58 +96,118 @@ const LandingPage = () => {
                             </div>
                         </motion.div>
 
-                        <motion.div
+                        <motion.div 
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.8, delay: 0.2 }}
-                            className="relative"
+                            className="relative z-10"
                         >
-                            {/* Abstract Tech Illustration */}
-                            <div className="relative z-10 bg-gradient-to-br from-slate-800 to-slate-900 p-2 rounded-2xl shadow-2xl border border-slate-700">
-                                <div className="bg-slate-950 rounded-xl overflow-hidden aspect-[4/3] relative group">
-                                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10"></div>
+                            {/* 3D Dashboard Mockup Container */}
+                            <div className="relative" style={{ perspective: '1000px' }}>
+                                <motion.div 
+                                    initial={{ rotateY: -15, rotateX: 5 }}
+                                    animate={{ 
+                                        rotateY: [-15, -5, -15],
+                                        rotateX: [5, 0, 5],
+                                        y: [0, -10, 0]
+                                    }}
+                                    transition={{ 
+                                        rotateY: { duration: 5, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" },
+                                        rotateX: { duration: 6, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" },
+                                        y: { duration: 4, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }
+                                    }}
+                                    className="bg-slate-900 rounded-xl border border-slate-700 shadow-2xl overflow-hidden"
+                                >
+                                    {/* Mockup Header */}
+                                    <div className="h-8 bg-slate-800 border-b border-slate-700 flex items-center px-4 gap-2">
+                                        <div className="flex gap-1.5">
+                                            <div className="w-2.5 h-2.5 rounded-full bg-red-500"></div>
+                                            <div className="w-2.5 h-2.5 rounded-full bg-yellow-500"></div>
+                                            <div className="w-2.5 h-2.5 rounded-full bg-green-500"></div>
+                                        </div>
+                                        <div className="ml-4 h-4 w-32 bg-slate-700 rounded-full opacity-50"></div>
+                                    </div>
 
-                                    {/* Floating Elements */}
-                                    <motion.div
-                                        animate={{ y: [0, -10, 0] }}
-                                        transition={{ repeat: Infinity, duration: 4 }}
-                                        className="absolute top-10 left-10 p-4 bg-slate-800 rounded-lg border border-slate-700 shadow-lg"
-                                    >
-                                        <BarChart className="w-8 h-8 text-blue-400" />
-                                        <div className="h-2 w-16 bg-slate-700 rounded mt-2"></div>
-                                        <div className="h-2 w-10 bg-slate-700 rounded mt-1"></div>
-                                    </motion.div>
+                                    {/* Mockup Body */}
+                                    <div className="flex h-[350px]">
+                                        {/* Sidebar */}
+                                        <div className="w-16 bg-slate-800 border-r border-slate-700 flex flex-col items-center py-4 gap-4">
+                                            <div className="w-8 h-8 bg-blue-600 rounded-lg"></div>
+                                            <div className="w-8 h-8 bg-slate-700 rounded-lg opacity-50"></div>
+                                            <div className="w-8 h-8 bg-slate-700 rounded-lg opacity-50"></div>
+                                            <div className="w-8 h-8 bg-slate-700 rounded-lg opacity-50"></div>
+                                        </div>
 
-                                    <motion.div
-                                        animate={{ y: [0, 15, 0] }}
-                                        transition={{ repeat: Infinity, duration: 5 }}
-                                        className="absolute bottom-10 right-10 p-4 bg-slate-800 rounded-lg border border-slate-700 shadow-lg"
-                                    >
-                                        <Users className="w-8 h-8 text-purple-400" />
-                                        <div className="h-2 w-20 bg-slate-700 rounded mt-2"></div>
-                                    </motion.div>
-
-                                    <motion.div
-                                        animate={{ scale: [1, 1.1, 1] }}
-                                        transition={{ repeat: Infinity, duration: 3 }}
-                                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-blue-500/20 rounded-full blur-3xl"
-                                    ></motion.div>
-
-                                    <div className="absolute inset-0 flex items-center justify-center">
-                                        <div className="text-center">
-                                            <div className="w-20 h-20 bg-blue-600 rounded-2xl mx-auto flex items-center justify-center shadow-lg shadow-blue-600/50 mb-4">
-                                                <Server className="w-10 h-10 text-white" />
+                                        {/* Main Content */}
+                                        <div className="flex-1 p-6 bg-slate-900">
+                                            {/* Header Area */}
+                                            <div className="flex justify-between items-center mb-6">
+                                                <div>
+                                                    <div className="h-5 w-32 bg-slate-700 rounded mb-2"></div>
+                                                    <div className="h-3 w-20 bg-slate-800 rounded"></div>
+                                                </div>
+                                                <div className="h-8 w-8 rounded-full bg-slate-700"></div>
                                             </div>
-                                            <h3 className="text-white font-bold text-xl">Centralized Data</h3>
-                                            <p className="text-slate-400 text-sm">Real-time Sync</p>
+
+                                            {/* Stats Grid */}
+                                            <div className="grid grid-cols-3 gap-4 mb-6">
+                                                {[1, 2, 3].map((i) => (
+                                                    <div key={i} className="bg-slate-800 p-3 rounded-lg border border-slate-700">
+                                                        <div className="h-8 w-8 bg-blue-500/20 rounded mb-2"></div>
+                                                        <div className="h-4 w-16 bg-slate-600 rounded mb-1"></div>
+                                                        <div className="h-3 w-10 bg-slate-700 rounded"></div>
+                                                    </div>
+                                                ))}
+                                            </div>
+
+                                            {/* Chart Area */}
+                                            <div className="bg-slate-800 rounded-lg border border-slate-700 p-4 h-32 relative overflow-hidden">
+                                                <div className="flex items-end justify-between h-full gap-2 px-2 pb-2">
+                                                    {[40, 60, 45, 70, 50, 80, 65, 85].map((h, i) => (
+                                                        <div key={i} className="w-full bg-blue-500/50 rounded-t" style={{ height: `${h}%` }}></div>
+                                                    ))}
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </motion.div>
+
+                                {/* Floating Elements */}
+                                <motion.div 
+                                    animate={{ y: [-10, 10, -10] }}
+                                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                                    className="absolute -right-6 top-20 bg-white p-3 rounded-lg shadow-xl border border-slate-200 z-20 max-w-[150px]"
+                                >
+                                    <div className="flex items-center gap-3 mb-2">
+                                        <div className="p-1.5 bg-green-100 rounded-full">
+                                            <CheckCircle className="w-4 h-4 text-green-600" />
+                                        </div>
+                                        <span className="text-xs font-bold text-slate-800">Admission Done</span>
+                                    </div>
+                                    <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
+                                        <div className="h-full w-3/4 bg-green-500"></div>
+                                    </div>
+                                </motion.div>
+
+                                <motion.div 
+                                    animate={{ y: [10, -10, 10] }}
+                                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                                    className="absolute -left-6 bottom-20 bg-white p-3 rounded-lg shadow-xl border border-slate-200 z-20"
+                                >
+                                    <div className="flex items-center gap-3">
+                                        <div className="p-1.5 bg-blue-100 rounded-full">
+                                            <Users className="w-4 h-4 text-blue-600" />
+                                        </div>
+                                        <div>
+                                            <div className="text-xs font-bold text-slate-800">New Students</div>
+                                            <div className="text-xs text-slate-500">+125 today</div>
+                                        </div>
+                                    </div>
+                                </motion.div>
                             </div>
 
-                            {/* Decorative Background Blobs */}
-                            <div className="absolute -top-10 -right-10 w-72 h-72 bg-blue-600/30 rounded-full blur-3xl -z-10"></div>
-                            <div className="absolute -bottom-10 -left-10 w-72 h-72 bg-purple-600/30 rounded-full blur-3xl -z-10"></div>
+                            {/* Background Glows */}
+                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-blue-500/20 blur-[100px] -z-10 rounded-full"></div>
                         </motion.div>
                     </div>
                 </div>
@@ -162,7 +222,7 @@ const LandingPage = () => {
                         <div className="w-20 h-1 bg-blue-600 mx-auto mt-4 rounded-full"></div>
                     </div>
 
-                    <motion.div
+                    <motion.div 
                         variants={staggerContainer}
                         initial="hidden"
                         whileInView="show"
@@ -175,7 +235,7 @@ const LandingPage = () => {
                             { icon: Clock, title: "Automation", desc: "Automate attendance, fee collection, and result processing." },
                             { icon: ShieldCheck, title: "Secure Access", desc: "Role-based access control for Admins, Faculty, and Students." }
                         ].map((item, index) => (
-                            <motion.div
+                            <motion.div 
                                 key={index}
                                 variants={{
                                     hidden: { opacity: 0, y: 20 },
@@ -198,7 +258,7 @@ const LandingPage = () => {
             <section id="stats" className="py-20 bg-slate-900 relative overflow-hidden">
                 <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1492538368677-f6e0afe31dcc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-10 fixed-bg"></div>
                 <div className="absolute inset-0 bg-slate-900/90"></div>
-
+                
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                         {[
@@ -207,7 +267,7 @@ const LandingPage = () => {
                             { value: "1200+", label: "Active Clients", icon: Server },
                             { value: "100k+", label: "Students Enrolled", icon: Users }
                         ].map((stat, index) => (
-                            <motion.div
+                            <motion.div 
                                 key={index}
                                 initial={{ opacity: 0, scale: 0.5 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
@@ -228,13 +288,13 @@ const LandingPage = () => {
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <motion.div {...fadeInUp}>
                             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-                                Comprehensive Features for <br />
+                                Comprehensive Features for <br/>
                                 <span className="text-blue-600">Modern Institutions</span>
                             </h2>
                             <p className="text-slate-600 text-lg mb-8">
                                 Our ERP system is packed with powerful modules designed to handle every aspect of campus administration.
                             </p>
-
+                            
                             <div className="grid sm:grid-cols-2 gap-6">
                                 {[
                                     "Dashboard Management", "Library Automation",
@@ -249,24 +309,24 @@ const LandingPage = () => {
                                     </div>
                                 ))}
                             </div>
-
+                            
                             <div className="mt-10">
                                 <Link to="/login" className="text-blue-600 font-bold hover:text-blue-700 inline-flex items-center gap-2">
                                     View All Features <ArrowRight className="w-5 h-5" />
                                 </Link>
                             </div>
                         </motion.div>
-
-                        <motion.div
+                        
+                        <motion.div 
                             initial={{ opacity: 0, x: 50 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.8 }}
                             className="relative"
                         >
                             <div className="bg-slate-50 rounded-3xl p-8 border border-slate-100">
-                                <img
-                                    src="https://img.freepik.com/free-vector/business-team-discussing-ideas-startup_74855-4380.jpg"
-                                    alt="Features Illustration"
+                                <img 
+                                    src="https://img.freepik.com/free-vector/business-team-discussing-ideas-startup_74855-4380.jpg" 
+                                    alt="Features Illustration" 
                                     className="w-full h-auto rounded-2xl shadow-lg mix-blend-multiply"
                                 />
                             </div>
