@@ -1,19 +1,21 @@
 const { Sequelize } = require('sequelize');
 require('dotenv').config();
 
-const isProduction = process.env.NODE_ENV === 'production';
+// Check for DATABASE_URL (standard for cloud providers like Neon/Render/Heroku)
+const databaseUrl = process.env.DATABASE_URL;
 
-const sequelize = isProduction
-  ? new Sequelize(
-    process.env.DB_NAME,
-    process.env.DB_USER,
-    process.env.DB_PASSWORD,
-    {
-      host: process.env.DB_HOST,
-      dialect: 'postgres',
-      logging: false,
-    }
-  )
+const sequelize = databaseUrl
+  ? new Sequelize(databaseUrl, {
+    dialect: 'postgres',
+    protocol: 'postgres',
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false // Required for some cloud DBs like Neon
+      }
+    },
+    logging: false
+  })
   : new Sequelize({
     dialect: 'sqlite',
     storage: './database.sqlite',

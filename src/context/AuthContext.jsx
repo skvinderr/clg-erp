@@ -9,13 +9,15 @@ export const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+
     // Load user from token on startup
     useEffect(() => {
         const loadUser = async () => {
             const token = localStorage.getItem('token');
             if (token) {
                 try {
-                    const res = await fetch('http://localhost:3001/api/auth/me', {
+                    const res = await fetch(`${API_URL}/api/auth/me`, {
                         headers: {
                             'x-auth-token': token
                         }
@@ -39,7 +41,7 @@ export const AuthProvider = ({ children }) => {
     const login = async (email, password) => {
         setError(null);
         try {
-            const res = await fetch('http://localhost:3001/api/auth/login', {
+            const res = await fetch(`${API_URL}/api/auth/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -65,7 +67,7 @@ export const AuthProvider = ({ children }) => {
     const register = async (name, email, password, role) => {
         setError(null);
         try {
-            const res = await fetch('http://localhost:3001/api/auth/register', {
+            const res = await fetch(`${API_URL}/api/auth/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
