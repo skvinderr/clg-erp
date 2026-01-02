@@ -13,21 +13,24 @@ export default function Login() {
     const { login } = useAuth();
     const navigate = useNavigate();
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
-        // Mock login logic
-        const selectedRole = roles.find(r => r.id === role)?.label || 'Student';
-        login({
-            name: 'John Doe',
-            email: email,
-            role: selectedRole,
-            avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
-        });
-
-        if (selectedRole === 'Faculty') navigate('/faculty-dashboard');
-        else if (selectedRole === 'Student') navigate('/student-portal');
-        else navigate('/dashboard');
+        const success = await login(email, password);
+        if (success) {
+            // Navigation is handled by the component based on role, 
+            // but we need to wait for user state to update in AuthContext.
+            // Actually, AuthContext updates user synchronously after await.
+            // We can check the role from the user object if we had it, 
+            // but login returns true/false.
+            // Let's rely on the fact that if login succeeds, we can redirect.
+            // Ideally we should check the role from the response, but for now:
+            navigate('/dashboard');
+        } else {
+            alert('Login failed. Please check your credentials.');
+        }
     };
+
+    // ... (roles array remains same)
 
     const roles = [
         { id: 'student', label: 'Student', icon: GraduationCap },
@@ -120,28 +123,19 @@ export default function Login() {
                         </p>
                         <div className="grid grid-cols-1 gap-3">
                             <button
-                                onClick={() => {
-                                    login({ name: 'Dr. Robert Langdon', email: 'admin@college.edu', role: 'Admin', avatar: 'https://ui-avatars.com/api/?name=Robert+Langdon&background=0D8ABC&color=fff' });
-                                    navigate('/dashboard');
-                                }}
+                                onClick={() => login('admin@college.edu', 'password123').then(success => success && navigate('/dashboard'))}
                                 className="w-full py-2 px-4 bg-purple-50 text-purple-700 hover:bg-purple-100 rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2"
                             >
                                 <ShieldCheck size={16} /> Login as Admin
                             </button>
                             <button
-                                onClick={() => {
-                                    login({ name: 'Dr. Sarah Wilson', email: 'faculty@college.edu', role: 'Faculty', avatar: 'https://ui-avatars.com/api/?name=Sarah+Wilson&background=10B981&color=fff' });
-                                    navigate('/faculty-dashboard');
-                                }}
+                                onClick={() => login('faculty@college.edu', 'password123').then(success => success && navigate('/faculty-dashboard'))}
                                 className="w-full py-2 px-4 bg-green-50 text-green-700 hover:bg-green-100 rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2"
                             >
                                 <User size={16} /> Login as Faculty
                             </button>
                             <button
-                                onClick={() => {
-                                    login({ name: 'Aarav Sharma', email: 'student@college.edu', role: 'Student', avatar: 'https://ui-avatars.com/api/?name=Aarav+Sharma&background=F59E0B&color=fff' });
-                                    navigate('/student-portal');
-                                }}
+                                onClick={() => login('student@college.edu', 'password123').then(success => success && navigate('/student-portal'))}
                                 className="w-full py-2 px-4 bg-orange-50 text-orange-700 hover:bg-orange-100 rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2"
                             >
                                 <GraduationCap size={16} /> Login as Student

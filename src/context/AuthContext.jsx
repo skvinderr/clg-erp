@@ -7,33 +7,90 @@ export const useAuth = () => useContext(AuthContext);
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
+    // Load user from token on startup
     useEffect(() => {
-        // Simulate checking for stored user
-        const storedUser = localStorage.getItem('user');
-        if (storedUser) {
-            const parsedUser = JSON.parse(storedUser);
-            // Migration: Ensure role exists for legacy data
-            if (!parsedUser.role) {
-                parsedUser.role = 'Admin'; // Default to Admin for existing dev sessions
-                localStorage.setItem('user', JSON.stringify(parsedUser));
+        const loadUser = async () => {
+            const token = localStorage.getItem('token');
+            if (token) {
+                try {
+                    const res = await fetch('http://localhost:3001/api/auth/me', {
+                        headers: {
+                            'x-auth-token': token
+                        }
+                    });
+                    if (res.ok) {
+                        const userData = await res.json();
+                        setUser(userData);
+                    } else {
+                        localStorage.removeItem('token');
+                    }
+                } catch (err) {
+                    console.error('Error loading user:', err);
+                    localStorage.removeItem('token');
+                }
             }
-            setUser(parsedUser);
-        }
-        setLoading(false);
+            setLoading(false);
+        };
+        loadUser();
     }, []);
 
-    const login = (userData) => {
-        // Simulate API call
-        // Ensure userData has a role, default to 'Student' if not provided for safety
-        const userWithRole = { ...userData, role: userData.role || 'Student' };
-        setUser(userWithRole);
-        localStorage.setItem('user', JSON.stringify(userWithRole));
+    const login = async (email, password) => {
+        setError(null);
+        try {
+            const res = await fetch('http://localhost:3001/api/auth/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, password })
+            });
+
+            const data = await res.json();
+
+            if (!res.ok) {
+                throw new Error(data.message || 'Login failed');
+            }
+
+            localStorage.setItem('token', data.token);
+            setUser(data.user);
+            return true;
+        } catch (err) {
+            setError(err.message);
+            return false;
+        }
+    };
+
+    const register = async (name, email, password, role) => {
+        setError(null);
+        try {
+            const res = await fetch('http://localhost:3001/api/auth/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name, email, password, role })
+            });
+
+            const data = await res.json();
+
+            if (!res.ok) {
+                throw new Error(data.message || 'Registration failed');
+            }
+
+            localStorage.setItem('token', data.token);
+            setUser(data.user);
+            return true;
+        } catch (err) {
+            setError(err.message);
+            return false;
+        }
     };
 
     const logout = () => {
+        localStorage.removeItem('token');
         setUser(null);
-        localStorage.removeItem('user');
     };
 
     const hasRole = (allowedRoles) => {
@@ -43,7 +100,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     return (
-        <AuthContext.Provider value={{ user, login, logout, loading, hasRole }}>
+        <AuthContext.Provider value={{ user, login, register, logout, loading, error, hasRole }}>
             {!loading && children}
         </AuthContext.Provider>
     );

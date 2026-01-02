@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: college_erp_db
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password123
+      POSTGRES_DB: college_erp
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - erp_network
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: college_erp_redis
+    ports:
+      - "6379:6379"
+    networks:
+      - erp_network
+
+  # Auth Service (Node.js)
+  auth-service:
+    build: ./backend/auth-service
+    container_name: college_erp_auth
+    ports:
+      - "3001:3001"
+    environment:
+      - PORT=3001
+      - DB_HOST=postgres
+      - DB_USER=admin
+      - DB_PASSWORD=password123
+      - DB_NAME=college_erp
+      - JWT_SECRET=dev_secret_key_123
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - erp_network
+    volumes:
+      - ./backend/auth-service:/app
+      - /app/node_modules
+
+networks:
+  erp_network:
+    driver: bridge
+
+volumes:
+  postgres_data:
