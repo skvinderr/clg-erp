@@ -121,7 +121,7 @@ export default function Login() {
                         <div className="grid grid-cols-1 gap-3">
                             <button
                                 onClick={() => {
-                                    login({ name: 'Admin User', email: 'admin@college.edu', role: 'Admin', avatar: 'https://ui-avatars.com/api/?name=Admin+User&background=0D8ABC&color=fff' });
+                                    login({ name: 'Dr. Robert Langdon', email: 'admin@college.edu', role: 'Admin', avatar: 'https://ui-avatars.com/api/?name=Robert+Langdon&background=0D8ABC&color=fff' });
                                     navigate('/dashboard');
                                 }}
                                 className="w-full py-2 px-4 bg-purple-50 text-purple-700 hover:bg-purple-100 rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2"
@@ -130,7 +130,7 @@ export default function Login() {
                             </button>
                             <button
                                 onClick={() => {
-                                    login({ name: 'Faculty Member', email: 'faculty@college.edu', role: 'Faculty', avatar: 'https://ui-avatars.com/api/?name=Faculty+Member&background=10B981&color=fff' });
+                                    login({ name: 'Dr. Sarah Wilson', email: 'faculty@college.edu', role: 'Faculty', avatar: 'https://ui-avatars.com/api/?name=Sarah+Wilson&background=10B981&color=fff' });
                                     navigate('/faculty-dashboard');
                                 }}
                                 className="w-full py-2 px-4 bg-green-50 text-green-700 hover:bg-green-100 rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2"
@@ -139,7 +139,7 @@ export default function Login() {
                             </button>
                             <button
                                 onClick={() => {
-                                    login({ name: 'Student User', email: 'student@college.edu', role: 'Student', avatar: 'https://ui-avatars.com/api/?name=Student+User&background=F59E0B&color=fff' });
+                                    login({ name: 'Aarav Sharma', email: 'student@college.edu', role: 'Student', avatar: 'https://ui-avatars.com/api/?name=Aarav+Sharma&background=F59E0B&color=fff' });
                                     navigate('/student-portal');
                                 }}
                                 className="w-full py-2 px-4 bg-orange-50 text-orange-700 hover:bg-orange-100 rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2"

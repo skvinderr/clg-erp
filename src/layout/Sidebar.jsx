@@ -27,7 +27,14 @@ import { clsx } from 'clsx';
 import { useAuth } from '../context/AuthContext';
 
 export function Sidebar({ collapsed, setCollapsed }) {
-    const { hasRole, logout } = useAuth();
+    const { user, hasRole, logout } = useAuth();
+
+    // Helper to get initials
+    const getInitials = (name) => {
+        if (!name) return 'U';
+        return name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
+    };
+
 
     const navItems = [
         { icon: LayoutDashboard, label: 'Dashboard', path: '/dashboard', roles: ['Admin'] },
@@ -112,12 +119,12 @@ export function Sidebar({ collapsed, setCollapsed }) {
                 <div className={clsx("flex items-center gap-3", collapsed ? "flex-col justify-center" : "justify-between")}>
                     <div className={clsx("flex items-center gap-3 flex-1 overflow-hidden", collapsed && "justify-center")}>
                         <div className="w-8 h-8 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center text-primary-700 dark:text-primary-400 font-bold text-xs flex-shrink-0">
-                            JD
+                            {getInitials(user?.name)}
                         </div>
                         {!collapsed && (
                             <div className="flex-1 min-w-0">
-                                <p className="text-sm font-medium text-secondary-900 dark:text-secondary-100 truncate">John Doe</p>
-                                <p className="text-xs text-secondary-500 dark:text-secondary-400 truncate">Administrator</p>
+                                <p className="text-sm font-medium text-secondary-900 dark:text-secondary-100 truncate">{user?.name || 'User'}</p>
+                                <p className="text-xs text-secondary-500 dark:text-secondary-400 truncate">{user?.role || 'Guest'}</p>
                             </div>
                         )}
                     </div>
