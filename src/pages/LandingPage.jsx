@@ -381,17 +381,23 @@ const LandingPage = () => {
             </section>
 
             {/* CTA Section */}
-            <section className="py-20 bg-blue-600">
-                <div className="max-w-4xl mx-auto px-4 text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Digitalize Your Campus?</h2>
-                    <p className="text-blue-100 text-xl mb-10 max-w-2xl mx-auto">
-                        Join the league of smart institutions. Experience the power of College ERP today.
+            <section className="py-24 relative overflow-hidden">
+                <div className="absolute inset-0 bg-[url('/cta-digital-horizon.png')] bg-cover bg-center fixed-bg"></div>
+                <div className="absolute inset-0 bg-blue-950/60 mix-blend-multiply"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/50"></div>
+
+                <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
+                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight drop-shadow-lg">
+                        Ready to <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Digitalize</span> Your Campus?
+                    </h2>
+                    <p className="text-blue-100 text-xl mb-10 max-w-2xl mx-auto leading-relaxed drop-shadow-md">
+                        Join the league of smart institutions. Experience the power of future-ready College ERP today.
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link to="/login" className="px-8 py-4 bg-white text-blue-600 rounded-full font-bold text-lg hover:bg-blue-50 transition-colors shadow-lg">
+                    <div className="flex flex-col sm:flex-row gap-5 justify-center">
+                        <Link to="/login" className="px-8 py-4 bg-white text-blue-900 rounded-full font-bold text-lg hover:bg-blue-50 transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] hover:scale-105">
                             Login to Portal
                         </Link>
-                        <button className="px-8 py-4 bg-blue-700 text-white border border-blue-500 rounded-full font-bold text-lg hover:bg-blue-800 transition-colors">
+                        <button className="px-8 py-4 bg-transparent border-2 border-white/30 text-white rounded-full font-bold text-lg hover:bg-white/10 transition-all backdrop-blur-md hover:border-white/60">
                             Schedule a Demo
                         </button>
                     </div>
