@@ -43,42 +43,42 @@ export default function StudentDashboard() {
 
             {/* Quick Stats Row */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-                <div className="bg-white dark:bg-slate-800 p-5 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 flex items-center justify-between group hover:border-blue-200 transition-colors">
+                <div className="bg-white dark:bg-slate-800 p-5 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 flex items-center justify-between group hover:bg-slate-900 dark:hover:bg-slate-900 transition-all duration-300">
                     <div>
-                        <p className="text-slate-500 dark:text-slate-400 text-sm font-medium">Attendance</p>
-                        <h3 className="text-2xl font-bold text-slate-900 dark:text-white mt-1">{student.academics.attendance}%</h3>
+                        <p className="text-slate-500 dark:text-slate-400 group-hover:text-slate-400 text-sm font-medium transition-colors">Attendance</p>
+                        <h3 className="text-2xl font-bold text-slate-900 dark:text-white group-hover:text-white mt-1 transition-colors">{student.academics.attendance}%</h3>
                     </div>
-                    <div className="h-12 w-12 rounded-full bg-green-50 dark:bg-green-900/20 flex items-center justify-center text-green-600 dark:text-green-400 group-hover:scale-110 transition-transform">
+                    <div className="h-12 w-12 rounded-full bg-green-50 dark:bg-green-900/20 flex items-center justify-center text-green-600 dark:text-green-400 group-hover:bg-slate-800 group-hover:text-green-500 transition-all group-hover:scale-110">
                         <CheckCircle size={20} />
                     </div>
                 </div>
 
-                <div className="bg-white dark:bg-slate-800 p-5 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 flex items-center justify-between group hover:border-purple-200 transition-colors">
+                <div className="bg-white dark:bg-slate-800 p-5 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 flex items-center justify-between group hover:bg-slate-900 dark:hover:bg-slate-900 transition-all duration-300">
                     <div>
-                        <p className="text-slate-500 dark:text-slate-400 text-sm font-medium">CGPA</p>
-                        <h3 className="text-2xl font-bold text-slate-900 dark:text-white mt-1">{student.academics.cgpa}</h3>
+                        <p className="text-slate-500 dark:text-slate-400 group-hover:text-slate-400 text-sm font-medium transition-colors">CGPA</p>
+                        <h3 className="text-2xl font-bold text-slate-900 dark:text-white group-hover:text-white mt-1 transition-colors">{student.academics.cgpa}</h3>
                     </div>
-                    <div className="h-12 w-12 rounded-full bg-purple-50 dark:bg-purple-900/20 flex items-center justify-center text-purple-600 dark:text-purple-400 group-hover:scale-110 transition-transform">
+                    <div className="h-12 w-12 rounded-full bg-purple-50 dark:bg-purple-900/20 flex items-center justify-center text-purple-600 dark:text-purple-400 group-hover:bg-slate-800 group-hover:text-purple-500 transition-all group-hover:scale-110">
                         <TrendingUp size={20} />
                     </div>
                 </div>
 
-                <div className="bg-white dark:bg-slate-800 p-5 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 flex items-center justify-between group hover:border-orange-200 transition-colors">
+                <div className="bg-white dark:bg-slate-800 p-5 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 flex items-center justify-between group hover:bg-slate-900 dark:hover:bg-slate-900 transition-all duration-300">
                     <div>
-                        <p className="text-slate-500 dark:text-slate-400 text-sm font-medium">Pending Tasks</p>
-                        <h3 className="text-2xl font-bold text-slate-900 dark:text-white mt-1">{assignments.length}</h3>
+                        <p className="text-slate-500 dark:text-slate-400 group-hover:text-slate-400 text-sm font-medium transition-colors">Pending Tasks</p>
+                        <h3 className="text-2xl font-bold text-slate-900 dark:text-white group-hover:text-white mt-1 transition-colors">{assignments.length}</h3>
                     </div>
-                    <div className="h-12 w-12 rounded-full bg-orange-50 dark:bg-orange-900/20 flex items-center justify-center text-orange-600 dark:text-orange-400 group-hover:scale-110 transition-transform">
+                    <div className="h-12 w-12 rounded-full bg-orange-50 dark:bg-orange-900/20 flex items-center justify-center text-orange-600 dark:text-orange-400 group-hover:bg-slate-800 group-hover:text-orange-500 transition-all group-hover:scale-110">
                         <Clock size={20} />
                     </div>
                 </div>
 
-                <div className="bg-white dark:bg-slate-800 p-5 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 flex items-center justify-between group hover:border-blue-200 transition-colors">
+                <div className="bg-white dark:bg-slate-800 p-5 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 flex items-center justify-between group hover:bg-slate-900 dark:hover:bg-slate-900 transition-all duration-300">
                     <div>
-                        <p className="text-slate-500 dark:text-slate-400 text-sm font-medium">Credits</p>
-                        <h3 className="text-2xl font-bold text-slate-900 dark:text-white mt-1">{student.academics.creditsEarned}</h3>
+                        <p className="text-slate-500 dark:text-slate-400 group-hover:text-slate-400 text-sm font-medium transition-colors">Credits</p>
+                        <h3 className="text-2xl font-bold text-slate-900 dark:text-white group-hover:text-white mt-1 transition-colors">{student.academics.creditsEarned}</h3>
                     </div>
-                    <div className="h-12 w-12 rounded-full bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform">
+                    <div className="h-12 w-12 rounded-full bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-blue-600 dark:text-blue-400 group-hover:bg-slate-800 group-hover:text-blue-500 transition-all group-hover:scale-110">
                         <Book size={20} />
                     </div>
                 </div>
@@ -144,23 +144,23 @@ export default function StudentDashboard() {
 
                 {/* Right Column (Notices & Quick Actions) */}
                 <div className="space-y-8">
-                    {/* Notice Board Widget */}
-                    <div className="bg-gradient-to-br from-slate-900 to-slate-800 dark:from-slate-800 dark:to-slate-900 rounded-2xl p-6 text-white shadow-lg">
+                    {/* Notice Board Widget - Updated for Dark on Hover */}
+                    <div className="bg-white dark:bg-slate-800 group hover:bg-slate-900 dark:hover:bg-slate-900 rounded-2xl p-6 shadow-sm border border-slate-100 dark:border-slate-700 transition-all duration-300">
                         <div className="flex justify-between items-center mb-6">
-                            <h2 className="text-lg font-bold flex items-center gap-2">
-                                <Megaphone size={18} className="text-yellow-400" /> Notices
+                            <h2 className="text-lg font-bold flex items-center gap-2 text-slate-900 dark:text-white group-hover:text-white transition-colors">
+                                <Megaphone size={18} className="text-yellow-500 group-hover:text-yellow-400 transition-colors" /> Notices
                             </h2>
-                            <span className="text-xs bg-white/10 px-2 py-1 rounded">New: 3</span>
+                            <span className="text-xs bg-slate-100 dark:bg-slate-700 group-hover:bg-slate-800 text-slate-600 dark:text-slate-300 group-hover:text-slate-300 px-2 py-1 rounded transition-colors border border-slate-200 dark:border-slate-600 group-hover:border-slate-700">New: 3</span>
                         </div>
                         <div className="space-y-4">
                             {notices.map((notice, idx) => (
-                                <div key={notice.id} className={`pb-3 ${idx !== notices.length - 1 ? 'border-b border-white/10' : ''}`}>
-                                    <p className="text-sm font-medium leading-snug hover:text-blue-300 cursor-pointer transition-colors">{notice.title}</p>
+                                <div key={notice.id} className={`pb-3 ${idx !== notices.length - 1 ? 'border-b border-slate-100 dark:border-slate-700 group-hover:border-slate-800' : ''}`}>
+                                    <p className="text-sm font-medium leading-snug text-slate-700 dark:text-slate-200 group-hover:text-slate-200 hover:!text-blue-400 cursor-pointer transition-colors">{notice.title}</p>
                                     <p className="text-xs text-slate-400 mt-1">{notice.date}</p>
                                 </div>
                             ))}
                         </div>
-                        <button className="w-full mt-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg text-sm font-medium transition-colors">
+                        <button className="w-full mt-4 py-2 bg-slate-50 dark:bg-slate-900/50 group-hover:bg-slate-800 text-slate-600 dark:text-slate-400 group-hover:text-slate-300 hover:!bg-slate-700 hover:!text-white rounded-lg text-sm font-medium transition-colors">
                             View All Notices
                         </button>
                     </div>
@@ -171,30 +171,30 @@ export default function StudentDashboard() {
                         <div className="grid grid-cols-2 gap-3">
                             <button
                                 onClick={() => navigate('/hostel')}
-                                className="p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600 transition-colors flex flex-col items-center gap-2 text-center"
+                                className="p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600 transition-colors flex flex-col items-center gap-2 text-center group"
                             >
-                                <BedDouble size={24} className="text-slate-400 group-hover:text-blue-600" />
+                                <BedDouble size={24} className="text-slate-400 group-hover:text-blue-600 transition-colors" />
                                 <span className="text-xs font-semibold text-slate-600 dark:text-slate-400">Hostel</span>
                             </button>
                             <button
                                 onClick={() => navigate('/transport')}
-                                className="p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl hover:bg-orange-50 dark:hover:bg-orange-900/20 hover:text-orange-600 transition-colors flex flex-col items-center gap-2 text-center"
+                                className="p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl hover:bg-orange-50 dark:hover:bg-orange-900/20 hover:text-orange-600 transition-colors flex flex-col items-center gap-2 text-center group"
                             >
-                                <Bus size={24} className="text-slate-400" />
+                                <Bus size={24} className="text-slate-400 group-hover:text-orange-600 transition-colors" />
                                 <span className="text-xs font-semibold text-slate-600 dark:text-slate-400">Transport</span>
                             </button>
                             <button
                                 onClick={() => navigate('/library')}
-                                className="p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl hover:bg-purple-50 dark:hover:bg-purple-900/20 hover:text-purple-600 transition-colors flex flex-col items-center gap-2 text-center"
+                                className="p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl hover:bg-purple-50 dark:hover:bg-purple-900/20 hover:text-purple-600 transition-colors flex flex-col items-center gap-2 text-center group"
                             >
-                                <Library size={24} className="text-slate-400" />
+                                <Library size={24} className="text-slate-400 group-hover:text-purple-600 transition-colors" />
                                 <span className="text-xs font-semibold text-slate-600 dark:text-slate-400">Library</span>
                             </button>
                             <button
                                 onClick={() => navigate('/placement')}
-                                className="p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl hover:bg-green-50 dark:hover:bg-green-900/20 hover:text-green-600 transition-colors flex flex-col items-center gap-2 text-center"
+                                className="p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl hover:bg-green-50 dark:hover:bg-green-900/20 hover:text-green-600 transition-colors flex flex-col items-center gap-2 text-center group"
                             >
-                                <Briefcase size={24} className="text-slate-400" />
+                                <Briefcase size={24} className="text-slate-400 group-hover:text-green-600 transition-colors" />
                                 <span className="text-xs font-semibold text-slate-600 dark:text-slate-400">Placement</span>
                             </button>
                         </div>
