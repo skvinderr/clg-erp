@@ -1,58 +1,66 @@
-import React, { useState, useEffect } from 'react';
-import { Bell, Search, Menu } from 'lucide-react';
+import React, { useState } from 'react';
+import { Bell, Search, Menu, Filter, Settings, ChevronDown } from 'lucide-react';
 import { Button } from '../components/Button';
-import { Input } from '../components/Input';
 import ThemeToggle from '../components/common/ThemeToggle';
 import QuickSearch from '../components/common/QuickSearch';
+import { useAuth } from '../context/AuthContext';
 
 export function Header({ collapsed, setCollapsed }) {
     const [isSearchOpen, setIsSearchOpen] = useState(false);
-
-    useEffect(() => {
-        const handleKeyDown = (e) => {
-            if (e.ctrlKey && e.key === 'k') {
-                e.preventDefault();
-                setIsSearchOpen(true);
-            }
-        };
-        window.addEventListener('keydown', handleKeyDown);
-        return () => window.removeEventListener('keydown', handleKeyDown);
-    }, []);
+    const { user } = useAuth();
 
     return (
         <>
             <QuickSearch isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
-            <header className="h-16 bg-white dark:bg-secondary-900 border-b border-secondary-200 dark:border-secondary-800 sticky top-0 z-10 px-4 flex items-center justify-between transition-colors">
+            <header className="h-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-10 px-6 flex items-center justify-between transition-colors">
                 <div className="flex items-center gap-4">
                     <button
                         onClick={() => setCollapsed(!collapsed)}
-                        className="p-2 rounded-lg hover:bg-secondary-100 dark:hover:bg-secondary-800 text-secondary-500 dark:text-secondary-400 lg:hidden"
+                        className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 lg:hidden"
                     >
                         <Menu className="w-6 h-6" />
                     </button>
 
-                    <div className="hidden md:block w-64">
-                        <div className="relative" onClick={() => setIsSearchOpen(true)}>
-                            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-secondary-400" />
-                            <Input
-                                readOnly
-                                placeholder="Search... (Ctrl+K)"
-                                className="pl-9 bg-secondary-50 dark:bg-secondary-800 border-transparent focus:bg-white dark:focus:bg-secondary-900 focus:border-primary-500 dark:text-secondary-100 cursor-pointer"
-                            />
+                    <div className="hidden md:flex items-center gap-4 w-96">
+                        <div
+                            className="relative flex-1 group"
+                            onClick={() => setIsSearchOpen(true)}
+                        >
+                            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-hover:text-blue-500 transition-colors" />
+                            <div className="w-full bg-slate-50 dark:bg-slate-800 border border-transparent hover:bg-white hover:border-slate-200 dark:hover:border-slate-700 rounded-xl py-2 pl-10 pr-4 text-sm text-slate-500 cursor-text transition-all duration-200">
+                                Search for students, invoices...
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div className="flex items-center gap-3">
-                    <ThemeToggle />
-                    <button className="relative p-2 rounded-full hover:bg-secondary-100 dark:hover:bg-secondary-800 text-secondary-500 dark:text-secondary-400 transition-colors">
-                        <Bell className="w-5 h-5" />
-                        <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full border-2 border-white dark:border-secondary-900"></span>
-                    </button>
-                    <div className="h-8 w-px bg-secondary-200 mx-1"></div>
-                    <Button variant="ghost" size="sm" className="hidden sm:flex">
-                        Help
+                    <Button variant="ghost" size="sm" className="hidden sm:flex text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white">
+                        <Filter className="w-4 h-4 mr-2" />
+                        Filters
                     </Button>
+
+                    <div className="h-6 w-px bg-slate-200 dark:bg-slate-700 mx-1"></div>
+
+                    <ThemeToggle />
+
+                    <button className="relative p-2.5 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 hover:text-blue-600 transition-colors">
+                        <Bell className="w-5 h-5" />
+                        <span className="absolute top-2 right-2.5 w-2 h-2 bg-red-500 rounded-full border-2 border-white dark:border-slate-900"></span>
+                    </button>
+
+                    <button className="p-2.5 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 transition-colors">
+                        <Settings className="w-5 h-5" />
+                    </button>
+
+                    <div className="pl-2 border-l border-slate-200 dark:border-slate-700 ml-2 hidden sm:block">
+                        <button className="flex items-center gap-2 hover:bg-slate-50 dark:hover:bg-slate-800 p-1.5 rounded-lg transition-colors">
+                            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-blue-600 to-purple-600 flex items-center justify-center text-white font-bold text-xs">
+                                {user?.name?.charAt(0) || 'U'}
+                            </div>
+                            <ChevronDown className="w-3 h-3 text-slate-400" />
+                        </button>
+                    </div>
                 </div>
             </header>
         </>
