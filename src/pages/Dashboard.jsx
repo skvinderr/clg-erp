@@ -50,12 +50,12 @@ const StatCard = ({ title, value, trend, trendUp, data }) => (
     <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col justify-between h-48"
+        className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col justify-between h-48 hover:bg-slate-900 dark:hover:bg-slate-900 transition-all duration-300 group cursor-default"
     >
         <div className="flex justify-between items-start">
             <div>
-                <p className="text-sm font-medium text-slate-500 dark:text-slate-400">{title}</p>
-                <h3 className="text-3xl font-bold text-slate-900 dark:text-white mt-2">{value}</h3>
+                <p className="text-sm font-medium text-slate-500 dark:text-slate-400 group-hover:text-slate-400 transition-colors">{title}</p>
+                <h3 className="text-3xl font-bold text-slate-900 dark:text-white mt-2 group-hover:text-white transition-colors">{value}</h3>
             </div>
             <div className={`p-2 rounded-lg ${trendUp ? 'bg-green-50 text-green-600' : 'bg-red-50 text-red-600'}`}>
                 <TrendingUp className={`w-5 h-5 ${!trendUp && 'rotate-180'}`} />
@@ -141,14 +141,14 @@ export default function Dashboard() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 }}
-                    className="bg-slate-900 dark:bg-slate-800 p-6 rounded-2xl shadow-lg flex flex-col justify-between h-48 relative overflow-hidden"
+                    className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-700 flex flex-col justify-between h-48 relative overflow-hidden hover:bg-slate-900 dark:hover:bg-slate-900 transition-all duration-300 group cursor-default"
                 >
                     <div className="absolute top-0 right-0 p-32 bg-blue-500 rounded-full blur-[80px] opacity-20 pointer-events-none"></div>
 
                     <div className="relative z-10 w-full flex justify-between">
                         <div>
-                            <p className="text-sm font-medium text-slate-300">Fee Collection</p>
-                            <h3 className="text-3xl font-bold text-white mt-2">65%</h3>
+                            <p className="text-sm font-medium text-slate-500 dark:text-slate-400 group-hover:text-slate-300 transition-colors">Fee Collection</p>
+                            <h3 className="text-3xl font-bold text-slate-900 dark:text-white mt-2 group-hover:text-white transition-colors">65%</h3>
                         </div>
                         <div className="w-16 h-16">
                             <ResponsiveContainer width="100%" height="100%">
@@ -173,20 +173,20 @@ export default function Dashboard() {
                         </div>
                     </div>
                     <div className="relative z-10">
-                        <div className="flex justify-between text-xs text-slate-400 mb-1">
+                        <div className="flex justify-between text-xs text-slate-400 mb-1 group-hover:text-slate-300 transition-colors">
                             <span>Collected</span>
-                            <span className="text-white font-medium">$45,231</span>
+                            <span className="text-slate-900 dark:text-white group-hover:text-white font-medium transition-colors">$45,231</span>
                         </div>
-                        <div className="w-full bg-slate-700 rounded-full h-1.5">
+                        <div className="w-full bg-slate-100 dark:bg-slate-700 group-hover:bg-slate-700 transition-colors rounded-full h-1.5">
                             <div className="bg-blue-500 h-1.5 rounded-full" style={{ width: '65%' }}></div>
                         </div>
-                        <p className="text-xs text-slate-400 mt-3">Target: $70k for Q1</p>
+                        <p className="text-xs text-slate-400 mt-3 group-hover:text-slate-400">Target: $70k for Q1</p>
                     </div>
                 </motion.div>
 
-                <div className="md:col-span-2 bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col">
+                <div className="md:col-span-2 bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col hover:bg-slate-900 dark:hover:bg-slate-900 transition-all duration-300 group cursor-default">
                     <div className="flex justify-between items-center mb-6">
-                        <h3 className="font-bold text-slate-900 dark:text-white">Admission Trend</h3>
+                        <h3 className="font-bold text-slate-900 dark:text-white group-hover:text-white transition-colors">Admission Trend</h3>
                         <select className="bg-slate-50 dark:bg-slate-700 border-none text-xs rounded-lg px-2 py-1 text-slate-600 dark:text-slate-300 outline-none">
                             <option>This Week</option>
                             <option>Last Month</option>

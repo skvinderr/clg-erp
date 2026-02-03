@@ -64,8 +64,8 @@ const ExamSchedule = () => {
                                 </p>
                             </div>
                             <span className={`px-3 py-1 rounded-full text-sm font-medium ${selectedExam.status === 'Upcoming' ? 'bg-blue-100 text-blue-700' :
-                                    selectedExam.status === 'Ongoing' ? 'bg-green-100 text-green-700' :
-                                        'bg-secondary-100 text-secondary-700'
+                                selectedExam.status === 'Ongoing' ? 'bg-green-100 text-green-700' :
+                                    'bg-secondary-100 text-secondary-700'
                                 }`}>
                                 {selectedExam.status}
                             </span>

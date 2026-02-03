@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import {
     LayoutDashboard, Users, GraduationCap, CalendarCheck, FileText,
-    CreditCard, Library, BarChart3, ChevronLeft, BedDouble,
+    CreditCard, Library, BarChart3, ChevronLeft, ChevronRight, BedDouble,
     Bus, Briefcase, Shield, LogOut, Plug, Code, Brain, MessageCircle
 } from 'lucide-react';
 import { clsx } from 'clsx';
@@ -80,10 +80,10 @@ export function Sidebar({ collapsed, setCollapsed }) {
                     onClick={() => setCollapsed(!collapsed)}
                     className={clsx(
                         "p-1.5 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-500 transition-colors",
-                        collapsed && "hidden"
+                        collapsed && "mx-auto mt-2"
                     )}
                 >
-                    <ChevronLeft className="w-5 h-5" />
+                    {collapsed ? <ChevronRight className="w-5 h-5" /> : <ChevronLeft className="w-5 h-5" />}
                 </button>
             </div>
 
