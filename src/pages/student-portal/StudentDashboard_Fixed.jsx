@@ -92,7 +92,7 @@ export default function StudentDashboard() {
                     <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 p-6">
                         <div className="flex justify-between items-center mb-6">
                             <h2 className="text-lg font-bold text-slate-900 dark:text-white">Today's Timeline</h2>
-                            <button className="text-sm text-blue-600 font-medium hover:underline">View Full Schedule</button>
+                            <button onClick={() => navigate('/student-portal/schedule')} className="text-sm text-blue-600 font-medium hover:underline">View Full Schedule</button>
                         </div>
                         <div className="relative pl-4 border-l-2 border-slate-100 dark:border-slate-700 ml-3 space-y-8">
                             {schedule.map((item, index) => (

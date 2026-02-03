@@ -8,6 +8,7 @@ import StudentList from './pages/students/StudentList';
 import AdmissionForm from './pages/students/AdmissionForm';
 import StudentProfile from './pages/students/StudentProfile';
 import StudentDashboard from './pages/student-portal/StudentDashboard_Fixed';
+import StudentSchedule from './pages/student-portal/StudentSchedule';
 import FacultyList from './pages/faculty/FacultyList';
 import FacultyProfile from './pages/faculty/FacultyProfile';
 import FacultyDashboard from './pages/faculty/FacultyDashboard';
@@ -142,6 +143,11 @@ function App() {
             <Route path="student-portal" element={
               <ProtectedRoute allowedRoles={['Student']}>
                 <StudentDashboard />
+              </ProtectedRoute>
+            } />
+            <Route path="student-portal/schedule" element={
+              <ProtectedRoute allowedRoles={['Student']}>
+                <StudentSchedule />
               </ProtectedRoute>
             } />
 
